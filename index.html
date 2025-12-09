@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zion Ministries | Grand Church Opening</title>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script>
@@ -71,7 +68,7 @@
         
         .bg-hero-custom {
             /* TODO: Replace the URL below with your local image file. 
-               Example: url('church_main.jpg'); 
+                Example: url('church_main.jpg'); 
             */
             background-image: linear-gradient(to bottom, rgba(23, 37, 84, 0.8), rgba(23, 37, 84, 0.4)), url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
@@ -86,7 +83,6 @@
 </head>
 <body class="font-body text-gray-800 bg-white overflow-x-hidden">
 
-    <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center space-x-2">
@@ -96,12 +92,14 @@
                 </a>
             </div>
             
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8 items-center">
+            <div class="hidden md:flex space-x-6 items-center">
                 <a href="#pastor" class="text-white hover:text-gold-400 transition text-sm uppercase tracking-wide">Pastor</a>
                 <a href="#speakers" class="text-white hover:text-gold-400 transition text-sm uppercase tracking-wide">Speakers</a>
                 <a href="#construction" class="text-white hover:text-gold-400 transition text-sm uppercase tracking-wide">Journey</a>
                 <a href="#program" class="text-white hover:text-gold-400 transition text-sm uppercase tracking-wide">Program</a>
+                <a href="#services" class="text-white hover:text-gold-400 transition text-sm uppercase tracking-wide">Services</a>
+                <a href="#lyrics" class="text-white hover:text-gold-400 transition text-sm uppercase tracking-wide">Songs</a>
+                
                 <a href="#live" class="text-red-400 hover:text-red-300 font-bold transition text-sm uppercase tracking-wide flex items-center gap-2">
                     <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span> Watch Live
                 </a>
@@ -111,23 +109,22 @@
                 </a>
             </div>
 
-            <!-- Mobile Menu Button -->
             <button id="mobile-menu-btn" class="md:hidden text-white text-2xl focus:outline-none">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
 
-        <!-- Mobile Menu Overlay -->
         <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-royal-900 border-t border-royal-800 p-6 flex-col space-y-4 shadow-xl text-center">
             <a href="#pastor" class="text-white hover:text-gold-400 block py-2">Our Pastor</a>
             <a href="#speakers" class="text-white hover:text-gold-400 block py-2">Guest Speakers</a>
             <a href="#construction" class="text-white hover:text-gold-400 block py-2">Construction Journey</a>
             <a href="#program" class="text-white hover:text-gold-400 block py-2">Program Schedule</a>
+            <a href="#services" class="text-white hover:text-gold-400 block py-2">Weekly Services</a>
+            <a href="#lyrics" class="text-white hover:text-gold-400 block py-2">Worship Songs</a>
             <a href="#live" class="text-red-400 font-bold block py-2">Watch Live</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header class="relative h-screen bg-hero-custom bg-cover bg-center bg-fixed bg-no-repeat flex items-center justify-center text-center px-4">
         <div class="relative z-10 max-w-5xl mx-auto">
             <p class="text-gold-400 font-display tracking-[0.3em] uppercase mb-4 animate-fade-in-down">
@@ -170,7 +167,6 @@
             </div>
         </div>
 
-        <!-- Scroll Down Arrow -->
         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
             <a href="#pastor" class="text-white opacity-70 hover:opacity-100 transition">
                 <i class="fas fa-chevron-down text-2xl"></i>
@@ -178,21 +174,14 @@
         </div>
     </header>
 
-    <!-- Host & Pastor Section -->
     <section id="pastor" class="py-20 bg-white reveal">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center gap-12">
-                <!-- Pastor Image -->
                 <div class="w-full md:w-1/2 relative">
                     <div class="absolute inset-0 bg-gold-500 transform translate-x-4 translate-y-4 rounded-lg"></div>
-                    <!-- 
-                        PLACEHOLDER: Replace 'src' with your uploaded photo 
-                        e.g., src="pastor_vijay.jpg" 
-                    -->
                     <img src="zz/pastor_vijay.jpeg" alt="Pastor Vijay Kumar" class="relative rounded-lg shadow-2xl w-full object-cover h-[500px]">
                 </div>
                 
-                <!-- Content -->
                 <div class="w-full md:w-1/2 text-center md:text-left">
                     <span class="text-gold-600 font-bold tracking-widest uppercase text-sm mb-2 block">
                         Host & Founder
@@ -223,7 +212,6 @@
         </div>
     </section>
 
-    <!-- Guest Speakers Section -->
     <section id="speakers" class="py-20 bg-royal-900 text-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 reveal">
@@ -233,14 +221,9 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-                <!-- Speaker 1 -->
                 <div class="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition duration-500 reveal">
                     <div class="flex flex-col md:flex-row h-full">
                         <div class="md:w-2/5 h-64 md:h-auto">
-                            <!-- 
-                                PLACEHOLDER: Replace 'src' with your uploaded photo 
-                                e.g., src="apostle_steeven.jpg" 
-                            -->
                             <img src="zz/Layer 16.jpg" alt="Apostle Steeven Garu" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                         </div>
                         <div class="p-8 md:w-3/5 flex flex-col justify-center text-left">
@@ -253,14 +236,9 @@
                     </div>
                 </div>
 
-                <!-- Speaker 2 -->
                 <div class="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition duration-500 reveal delay-100">
                     <div class="flex flex-col md:flex-row h-full">
                          <div class="md:w-2/5 h-64 md:h-auto">
-                            <!-- 
-                                PLACEHOLDER: Replace 'src' with your uploaded photo 
-                                e.g., src="rev_yesupadam.jpg" 
-                            -->
                             <img src="zz/YESUPADHAM.jpg" alt="Rev Yesupadam Garu" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                         </div>
                         <div class="p-8 md:w-3/5 flex flex-col justify-center text-left">
@@ -276,7 +254,6 @@
         </div>
     </section>
 
-    <!-- Construction Journey Timeline -->
     <section id="construction" class="py-20 bg-slate-50 relative overflow-hidden">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 reveal">
@@ -287,7 +264,6 @@
             <div class="relative max-w-6xl mx-auto">
                 <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-gold-300"></div>
 
-                <!-- Stage 0: Demolition (NEW) -->
                 <div class="relative flex items-center justify-between md:flex-row-reverse mb-16 reveal">
                     <div class="hidden md:block w-5/12 text-left pl-12">
                         <h3 class="text-3xl font-serif text-royal-900">Demolition & Site Prep</h3>
@@ -296,7 +272,6 @@
                     <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-royal-900 border-4 border-gold-400 rounded-full z-10"></div>
                     <div class="pl-12 md:pr-12 md:pl-0 w-full md:w-5/12">
                          <div class="bg-white p-4 rounded-xl shadow-xl group hover:shadow-2xl transition duration-300">
-                            <!-- Large Gallery Grid -->
                             <div class="grid grid-cols-2 gap-3">
                                 <img src="zz/demolish.jpeg" onclick="openLightbox(this.src)" alt="Demolition 1" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
                                 <img src="zz/demo 2.jpeg" onclick="openLightbox(this.src)" alt="Demolition 2" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
@@ -309,7 +284,6 @@
                     </div>
                 </div>
 
-                <!-- Stage 1: Foundation -->
                 <div class="relative flex items-center justify-between md:justify-normal mb-16 reveal">
                     <div class="hidden md:block w-5/12 text-right pr-12">
                         <h3 class="text-3xl font-serif text-royal-900">Foundation</h3>
@@ -318,11 +292,10 @@
                     <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-royal-900 border-4 border-gold-400 rounded-full z-10"></div>
                     <div class="pl-12 md:pl-12 w-full md:w-5/12">
                         <div class="bg-white p-4 rounded-xl shadow-xl group hover:shadow-2xl transition duration-300">
-                            <!-- Large Gallery Grid -->
                             <div class="grid grid-cols-2 gap-3">
-                                <img src="https://placehold.co/800x400/EEE/31343C?text=Cornerstone" onclick="openLightbox(this.src)" alt="Cornerstone" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02] col-span-2">
-                                <img src="https://placehold.co/600x600/EEE/31343C?text=Found+1" onclick="openLightbox(this.src)" alt="Foundation 1" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
-                                <img src="https://placehold.co/600x600/EEE/31343C?text=Found+2" onclick="openLightbox(this.src)" alt="Foundation 2" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
+                                <img src="zz/ground 2.jpeg" onclick="openLightbox(this.src)" alt="Cornerstone" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02] col-span-2">
+                                <img src="zz/ground 1.jpeg" onclick="openLightbox(this.src)" alt="Foundation 1" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
+                                <img src="zz/ground 3.jpeg" onclick="openLightbox(this.src)" alt="Foundation 2" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
                             </div>
                             <div class="md:hidden mt-4 px-2 pb-2">
                                 <h3 class="text-2xl font-serif text-royal-900">Foundation</h3>
@@ -331,7 +304,6 @@
                     </div>
                 </div>
 
-                <!-- Stage 2: Pillars & Structure -->
                 <div class="relative flex items-center justify-between md:flex-row-reverse mb-16 reveal">
                     <div class="hidden md:block w-5/12 text-left pl-12">
                         <h3 class="text-3xl font-serif text-royal-900">Pillars & Structure</h3>
@@ -340,7 +312,6 @@
                     <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-royal-900 border-4 border-gold-400 rounded-full z-10"></div>
                     <div class="pl-12 md:pr-12 md:pl-0 w-full md:w-5/12">
                          <div class="bg-white p-4 rounded-xl shadow-xl group hover:shadow-2xl transition duration-300">
-                            <!-- Large Gallery Grid -->
                             <div class="grid grid-cols-2 gap-3">
                                 <img src="https://placehold.co/600x800/EEE/31343C?text=Pillars" onclick="openLightbox(this.src)" alt="Structure 1" class="cursor-pointer rounded-lg w-full h-80 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02] row-span-2">
                                 <img src="https://placehold.co/600x400/EEE/31343C?text=Beams" onclick="openLightbox(this.src)" alt="Structure 2" class="cursor-pointer rounded-lg w-full h-36 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
@@ -353,7 +324,6 @@
                     </div>
                 </div>
 
-                <!-- Stage 3: Roofing & Interior -->
                 <div class="relative flex items-center justify-between md:justify-normal mb-16 reveal">
                     <div class="hidden md:block w-5/12 text-right pr-12">
                         <h3 class="text-3xl font-serif text-royal-900">Roofing & Interior</h3>
@@ -362,7 +332,6 @@
                     <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-royal-900 border-4 border-gold-400 rounded-full z-10"></div>
                     <div class="pl-12 md:pl-12 w-full md:w-5/12">
                         <div class="bg-white p-4 rounded-xl shadow-xl group hover:shadow-2xl transition duration-300">
-                            <!-- Large Gallery Grid -->
                             <div class="grid grid-cols-3 gap-3">
                                 <img src="https://placehold.co/800x400/EEE/31343C?text=Roof" onclick="openLightbox(this.src)" alt="Roofing" class="cursor-pointer rounded-lg w-full h-32 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02] col-span-3">
                                 <img src="https://placehold.co/400x400/EEE/31343C?text=Flooring" onclick="openLightbox(this.src)" alt="Flooring" class="cursor-pointer rounded-lg w-full h-32 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
@@ -376,7 +345,6 @@
                     </div>
                 </div>
 
-                <!-- Stage 4: Final Completed Church -->
                 <div class="relative flex items-center justify-between md:flex-row-reverse mb-16 reveal">
                     <div class="hidden md:block w-5/12 text-left pl-12">
                         <h3 class="text-3xl font-serif text-royal-900">Final Completed Church</h3>
@@ -385,15 +353,8 @@
                     <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gold-500 border-4 border-royal-900 rounded-full z-10 animate-pulse"></div>
                     <div class="pl-12 md:pr-12 md:pl-0 w-full md:w-5/12">
                          <div class="bg-white p-4 rounded-xl shadow-xl group hover:shadow-2xl transition duration-300">
-                            <!-- Large Gallery Grid -->
                             <div class="grid grid-cols-2 gap-3">
-                                <!-- Main Uploaded Photo Slot -->
-                                <!-- 
-                                    PLACEHOLDER: Ideally replace 'src' with your uploaded photo 
-                                    e.g., src="church_main.jpg" 
-                                -->
                                 <img src="https://placehold.co/800x600/1e3a8a/FFF?text=Main+Church+Photo" onclick="openLightbox(this.src)" alt="Main View" class="cursor-pointer rounded-lg w-full h-64 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02] col-span-2 shadow-lg">
-                                <!-- Side Details -->
                                 <img src="https://placehold.co/400x400/EEE/31343C?text=Side+View" onclick="openLightbox(this.src)" alt="Side View" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
                                 <img src="https://placehold.co/400x400/EEE/31343C?text=Night+View" onclick="openLightbox(this.src)" alt="Night View" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
                             </div>
@@ -408,7 +369,6 @@
         </div>
     </section>
 
-    <!-- Program Schedule -->
     <section id="program" class="py-20 bg-royal-950 text-white relative">
         <div class="absolute top-0 right-0 w-64 h-64 bg-gold-500 opacity-5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
         <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500 opacity-10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
@@ -419,9 +379,7 @@
                 <h2 class="text-4xl font-serif mt-2">Opening Day Program</h2>
             </div>
 
-            <!-- Timeline Vertical for Program -->
             <div class="max-w-3xl mx-auto space-y-6">
-                <!-- Item 1 -->
                 <div class="bg-white/5 border border-white/10 p-6 rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6 hover:bg-white/10 transition reveal">
                     <div class="flex-shrink-0 w-20 h-20 bg-royal-800 rounded-full flex items-center justify-center border-2 border-gold-500 text-gold-400 text-center flex-col leading-tight">
                         <span class="text-sm font-bold">9:00</span>
@@ -433,7 +391,6 @@
                     </div>
                 </div>
 
-                <!-- Item 2 -->
                 <div class="bg-white/5 border border-white/10 p-6 rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6 hover:bg-white/10 transition reveal delay-100">
                     <div class="flex-shrink-0 w-20 h-20 bg-royal-800 rounded-full flex items-center justify-center border-2 border-gold-500 text-gold-400 text-center flex-col leading-tight">
                         <span class="text-sm font-bold">10:00</span>
@@ -445,7 +402,6 @@
                     </div>
                 </div>
 
-                <!-- Item 3 -->
                 <div class="bg-white/5 border border-white/10 p-6 rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6 hover:bg-white/10 transition reveal delay-200">
                     <div class="flex-shrink-0 w-20 h-20 bg-royal-800 rounded-full flex items-center justify-center border-2 border-gold-500 text-gold-400 text-center flex-col leading-tight">
                         <span class="text-sm font-bold">11:30</span>
@@ -457,7 +413,6 @@
                     </div>
                 </div>
 
-                <!-- Item 4 -->
                 <div class="bg-white/5 border border-white/10 p-6 rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6 hover:bg-white/10 transition reveal delay-300">
                     <div class="flex-shrink-0 w-20 h-20 bg-royal-800 rounded-full flex items-center justify-center border-2 border-gold-500 text-gold-400 text-center flex-col leading-tight">
                         <span class="text-sm font-bold">12:30</span>
@@ -472,7 +427,64 @@
         </div>
     </section>
 
-    <!-- Live Stream Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <span class="text-gold-600 uppercase tracking-widest text-sm font-bold">Join Us Weekly</span>
+                <h2 class="text-4xl font-serif text-royal-900 mt-2">Weekly Worship Services</h2>
+                <div class="w-24 h-1 bg-gold-500 mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                <div class="bg-royal-50 p-8 rounded-xl border border-royal-100 hover:shadow-xl transition duration-300 text-center reveal">
+                    <div class="w-16 h-16 bg-royal-900 text-gold-400 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-royal-900 mb-2">Sunday Service</h3>
+                    <p class="text-gold-600 font-bold mb-4 uppercase text-sm tracking-wide">Main Worship</p>
+                    <p class="text-gray-600">Join us for a time of powerful praise, worship, and the Word of God.</p>
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                        <p class="text-xl font-bold text-royal-800">8:00 AM</p>
+                    </div>
+                </div>
+
+                <div class="bg-royal-50 p-8 rounded-xl border border-royal-100 hover:shadow-xl transition duration-300 text-center reveal delay-100">
+                    <div class="w-16 h-16 bg-royal-900 text-gold-400 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
+                        <i class="fas fa-praying-hands"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-royal-900 mb-2">Fasting Prayer</h3>
+                    <p class="text-gold-600 font-bold mb-4 uppercase text-sm tracking-wide">Every wednesday</p>
+                    <p class="text-gray-600">Dedicate time to seek God's face in prayer and intercession for our families and nation.</p>
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                        <p class="text-xl font-bold text-royal-800">7:00 PM</p>
+                    </div>
+                </div>
+                <div class="bg-royal-50 p-8 rounded-xl border border-royal-100 hover:shadow-xl transition duration-300 text-center reveal delay-300">
+                    <div class="w-16 h-16 bg-royal-900 text-gold-400 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-royal-900 mb-2">Sunday School</h3>
+                    <p class="text-gold-600 font-bold mb-4 uppercase text-sm tracking-wide">For Kids</p>
+                    <p class="text-gray-600">Fun-filled biblical teaching, songs, and activities to build a strong foundation for children.</p>
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                        <p class="text-xl font-bold text-royal-800">10:00 AM</p>
+                    </div>
+                </div>
+                <div class="bg-royal-50 p-8 rounded-xl border border-royal-100 hover:shadow-xl transition duration-300 text-center reveal delay-200">
+                    <div class="w-16 h-16 bg-royal-900 text-gold-400 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-royal-900 mb-2">Women's meeting</h3>
+                    <p class="text-gold-600 font-bold mb-4 uppercase text-sm tracking-wide">Every friday</p>
+                    <p class="text-gray-600">Deep dive into the scriptures to grow in knowledge and spiritual maturity.</p>
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                        <p class="text-xl font-bold text-royal-800">11:00 AM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="live" class="py-24 bg-black relative text-center">
         <div class="container mx-auto px-6 relative z-10">
             <span class="text-red-500 font-bold uppercase tracking-widest text-sm mb-4 inline-block animate-pulse">
@@ -481,7 +493,6 @@
             <h2 class="text-3xl md:text-5xl font-serif text-white mb-8">Watch Zion Ministries Opening Live</h2>
             
             <div class="max-w-4xl mx-auto aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-2xl border border-gray-800 flex items-center justify-center group cursor-pointer relative">
-                <!-- Placeholder for Youtube Embed -->
                 <img src="https://placehold.co/1920x1080/111/444?text=Live+Stream+Placeholder" alt="Live Stream" class="w-full h-full object-cover opacity-50">
                 <div class="absolute inset-0 flex items-center justify-center">
                     <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center text-white text-3xl shadow-lg group-hover:scale-110 transition duration-300">
@@ -494,7 +505,6 @@
         </div>
     </section>
 
-    <!-- Worship Songs & Lyrics Section -->
     <section id="lyrics" class="py-20 bg-gray-900 border-t border-gray-800">
         <div class="container mx-auto px-6 max-w-4xl">
             <div class="text-center mb-12">
@@ -503,26 +513,8 @@
                 <div class="w-24 h-1 bg-gold-500 mx-auto mt-4"></div>
             </div>
 
-            <!-- Admin Controls (Add Song) -->
-            <div class="mb-8 p-6 bg-royal-950/50 rounded-xl border border-dashed border-gray-700">
-                <button onclick="toggleAddForm()" class="flex items-center text-gold-400 font-bold text-sm uppercase tracking-widest hover:text-white transition group">
-                    <i class="fas fa-plus-circle mr-3 text-xl group-hover:scale-110 transition-transform"></i> Add New Song
-                </button>
-                
-                <div id="add-song-form" class="hidden mt-6 space-y-4 animate-fade-in-down">
-                    <input type="text" id="new-song-title" placeholder="Song Title" class="w-full bg-black/40 text-white p-4 rounded border border-gray-700 focus:border-gold-500 outline-none placeholder-gray-600 transition">
-                    <textarea id="new-song-lyrics" rows="6" placeholder="Paste lyrics here..." class="w-full bg-black/40 text-white p-4 rounded border border-gray-700 focus:border-gold-500 outline-none placeholder-gray-600 transition"></textarea>
-                    <div class="flex gap-3">
-                        <button onclick="addSong()" class="px-6 py-2 bg-gold-600 text-royal-950 font-bold rounded hover:bg-gold-500 transition shadow-lg shadow-gold-600/20">Save Song</button>
-                        <button onclick="toggleAddForm()" class="px-6 py-2 bg-transparent text-gray-400 font-bold rounded hover:text-white transition">Cancel</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Song List (Accordion Style) -->
             <div id="song-list" class="space-y-4">
                 
-                <!-- Song 1 -->
                 <div class="bg-royal-950 border border-gray-700 rounded-lg overflow-hidden song-item">
                     <div class="flex items-stretch">
                         <button onclick="toggleLyrics('song1')" class="flex-grow px-6 py-4 flex justify-between items-center bg-royal-900 hover:bg-royal-800 transition focus:outline-none text-left">
@@ -531,9 +523,6 @@
                                 <span class="text-xl font-bold text-white">Way Maker</span>
                             </div>
                             <i id="icon-song1" class="fas fa-plus text-gold-400 transition-transform duration-300"></i>
-                        </button>
-                        <button onclick="deleteSong(this)" class="px-5 bg-red-900/20 hover:bg-red-600 text-red-500 hover:text-white transition border-l border-gray-700" title="Remove Song">
-                            <i class="fas fa-trash-alt"></i>
                         </button>
                     </div>
                     <div id="song1" class="hidden px-8 py-6 text-gray-300 leading-loose border-t border-gray-700 bg-black/20">
@@ -553,7 +542,6 @@
                     </div>
                 </div>
 
-                <!-- Song 2 -->
                 <div class="bg-royal-950 border border-gray-700 rounded-lg overflow-hidden song-item">
                     <div class="flex items-stretch">
                         <button onclick="toggleLyrics('song2')" class="flex-grow px-6 py-4 flex justify-between items-center bg-royal-900 hover:bg-royal-800 transition focus:outline-none text-left">
@@ -562,9 +550,6 @@
                                 <span class="text-xl font-bold text-white">10,000 Reasons (Bless the Lord)</span>
                             </div>
                             <i id="icon-song2" class="fas fa-plus text-gold-400 transition-transform duration-300"></i>
-                        </button>
-                         <button onclick="deleteSong(this)" class="px-5 bg-red-900/20 hover:bg-red-600 text-red-500 hover:text-white transition border-l border-gray-700" title="Remove Song">
-                            <i class="fas fa-trash-alt"></i>
                         </button>
                     </div>
                     <div id="song2" class="hidden px-8 py-6 text-gray-300 leading-loose border-t border-gray-700 bg-black/20">
@@ -582,7 +567,6 @@
                     </div>
                 </div>
 
-                <!-- Song 3 -->
                 <div class="bg-royal-950 border border-gray-700 rounded-lg overflow-hidden song-item">
                     <div class="flex items-stretch">
                         <button onclick="toggleLyrics('song3')" class="flex-grow px-6 py-4 flex justify-between items-center bg-royal-900 hover:bg-royal-800 transition focus:outline-none text-left">
@@ -591,9 +575,6 @@
                                 <span class="text-xl font-bold text-white">Amazing Grace</span>
                             </div>
                             <i id="icon-song3" class="fas fa-plus text-gold-400 transition-transform duration-300"></i>
-                        </button>
-                         <button onclick="deleteSong(this)" class="px-5 bg-red-900/20 hover:bg-red-600 text-red-500 hover:text-white transition border-l border-gray-700" title="Remove Song">
-                            <i class="fas fa-trash-alt"></i>
                         </button>
                     </div>
                     <div id="song3" class="hidden px-8 py-6 text-gray-300 leading-loose border-t border-gray-700 bg-black/20">
@@ -615,7 +596,6 @@
         </div>
     </section>
 
-    <!-- Testimonies Wall -->
     <section class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 reveal">
@@ -625,7 +605,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Testimony 1 -->
                 <div class="p-8 bg-gray-50 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition reveal">
                     <div class="flex items-center mb-4 text-gold-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -634,18 +613,16 @@
                     <div class="font-bold text-royal-900">- Sister Mary</div>
                     <span class="text-xs text-gray-400 uppercase">Healing Testimony</span>
                 </div>
-                <!-- Testimony 2 -->
                 <div class="p-8 bg-gray-50 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition reveal delay-100">
-                     <div class="flex items-center mb-4 text-gold-500">
+                      <div class="flex items-center mb-4 text-gold-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="text-gray-600 italic mb-6">"I found peace and salvation in this church. The teaching of the Word is powerful."</p>
                     <div class="font-bold text-royal-900">- Brother John</div>
                     <span class="text-xs text-gray-400 uppercase">Salvation Testimony</span>
                 </div>
-                <!-- Testimony 3 -->
                 <div class="p-8 bg-gray-50 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition reveal delay-200">
-                     <div class="flex items-center mb-4 text-gold-500">
+                      <div class="flex items-center mb-4 text-gold-500">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="text-gray-600 italic mb-6">"Waiting for this grand opening! It's a miracle how fast the construction completed."</p>
@@ -656,11 +633,9 @@
         </div>
     </section>
 
-    <!-- Contact & Map Section -->
     <section id="contact" class="py-20 bg-royal-50">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <!-- Contact Info -->
                 <div>
                     <h2 class="text-3xl font-serif text-royal-900 mb-6">Get in Touch</h2>
                     <p class="text-gray-600 mb-8">We would love to hear from you. Send us a prayer request or reach out for directions.</p>
@@ -678,9 +653,7 @@
                         </div>
 
                         
-                <!-- Map -->
                 <div class="h-full min-h-[400px] bg-gray-200 rounded-xl overflow-hidden shadow-lg relative">
-                    <!-- Placeholder for Google Maps Embed -->
                     <iframe 
                         src="https://maps.google.com/maps?width=600&height=400&hl=en&q=zion%20church%2Claxmidevipally&t=&z=14&ie=UTF8&iwloc=B&output=embed" 
                         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
@@ -695,12 +668,9 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-royal-950 text-white pt-16 pb-8 border-t border-white/10">
-        <!-- ... existing footer content ... -->
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-                <!-- Brand -->
                 <div class="col-span-1 md:col-span-1">
                     <div class="flex items-center space-x-2 mb-6">
                         <i class="fas fa-cross text-gold-500 text-2xl"></i>
@@ -711,7 +681,6 @@
                     </p>
                 </div>
 
-                <!-- Contact -->
                 <div>
                     <h4 class="font-bold text-lg mb-6 text-gold-400">Contact Info</h4>
                     <ul class="space-y-4 text-gray-400 text-sm">
@@ -721,7 +690,6 @@
                     </ul>
                 </div>
 
-                <!-- Service -->
                 <div>
                     <h4 class="font-bold text-lg mb-6 text-gold-400">Grand Opening</h4>
                     <ul class="space-y-2 text-gray-400 text-sm">
@@ -736,7 +704,6 @@
                     </ul>
                 </div>
 
-                <!-- Social -->
                 <div>
                     <h4 class="font-bold text-lg mb-6 text-gold-400">Follow Us</h4>
                     <div class="flex space-x-4">
@@ -754,7 +721,7 @@
             </div>
 
             <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-                <p>&copy; 2025 Zion Ministries. All Rights Reserved.</p>
+                <p>© 2025 Zion Ministries. All Rights Reserved.</p>
                 <div class="mt-4 md:mt-0 space-x-4">
                     <a href="#" class="hover:text-white">Privacy Policy</a>
                 </div>
@@ -762,7 +729,6 @@
         </div>
     </footer>
     
-    <!-- Lightbox Modal -->
     <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden flex justify-center items-center opacity-0 pointer-events-none transition-opacity duration-300">
         <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-4xl hover:text-gold-500 transition focus:outline-none">
             <i class="fas fa-times"></i>
@@ -773,7 +739,6 @@
         </div>
     </div>
 
-    <!-- JavaScript -->
     <script>
         // Navbar Scroll Effect
         const navbar = document.getElementById('navbar');
@@ -848,74 +813,8 @@
         });
 
         // ----------------------------------------
-        // SONG MANAGEMENT LOGIC
+        // SONG MANAGEMENT LOGIC (READ ONLY)
         // ----------------------------------------
-        // ... (existing song management code remains unchanged) ...
-        let songCounter = 3;
-
-        function toggleAddForm() {
-            const form = document.getElementById('add-song-form');
-            form.classList.toggle('hidden');
-        }
-
-        function addSong() {
-            const titleInput = document.getElementById('new-song-title');
-            const lyricsInput = document.getElementById('new-song-lyrics');
-            
-            const title = titleInput.value.trim();
-            const lyrics = lyricsInput.value.trim().replace(/\n/g, '<br>');
-
-            if (!title || !lyrics) {
-                alert("Please enter both a Song Title and Lyrics.");
-                return;
-            }
-
-            songCounter++;
-            const newId = 'song' + songCounter;
-            const songList = document.getElementById('song-list');
-
-            const songHTML = `
-                <div class="bg-royal-950 border border-gray-700 rounded-lg overflow-hidden song-item animate-fade-in-down">
-                    <div class="flex items-stretch">
-                        <button onclick="toggleLyrics('${newId}')" class="flex-grow px-6 py-4 flex justify-between items-center bg-royal-900 hover:bg-royal-800 transition focus:outline-none text-left">
-                            <div class="flex items-center gap-4">
-                                <span class="song-number w-8 h-8 rounded-full bg-gold-500 text-royal-900 flex items-center justify-center font-bold text-sm">${songCounter}</span>
-                                <span class="text-xl font-bold text-white">${title}</span>
-                            </div>
-                            <i id="icon-${newId}" class="fas fa-plus text-gold-400 transition-transform duration-300"></i>
-                        </button>
-                        <button onclick="deleteSong(this)" class="px-5 bg-red-900/20 hover:bg-red-600 text-red-500 hover:text-white transition border-l border-gray-700" title="Remove Song">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </div>
-                    <div id="${newId}" class="hidden px-8 py-6 text-gray-300 leading-loose border-t border-gray-700 bg-black/20">
-                        ${lyrics}
-                    </div>
-                </div>
-            `;
-            songList.insertAdjacentHTML('beforeend', songHTML);
-            titleInput.value = '';
-            lyricsInput.value = '';
-            toggleAddForm();
-            renumberSongs();
-        }
-
-        function deleteSong(btn) {
-            if (confirm("Are you sure you want to remove this song?")) {
-                const songItem = btn.closest('.song-item');
-                songItem.remove();
-                renumberSongs();
-            }
-        }
-
-        function renumberSongs() {
-            const badges = document.querySelectorAll('.song-number');
-            badges.forEach((badge, index) => {
-                badge.textContent = index + 1;
-            });
-            songCounter = badges.length;
-        }
-
         function toggleLyrics(id) {
             const content = document.getElementById(id);
             const icon = document.getElementById('icon-' + id);
