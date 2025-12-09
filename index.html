@@ -2,12 +2,12 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Zion Ministries | Grand Church Opening</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Noto+Sans+Telugu:wght@400;700&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -34,6 +34,7 @@
                         display: ['Cinzel', 'serif'],
                         serif: ['Playfair Display', 'serif'],
                         body: ['Lato', 'sans-serif'],
+                        telugu: ['Noto Sans Telugu', 'sans-serif'],
                     },
                     backgroundImage: {
                         'hero-gradient': "linear-gradient(to bottom, rgba(23, 37, 84, 0.8), rgba(23, 37, 84, 0.5))",
@@ -45,6 +46,12 @@
 
     <style>
         /* --- CUSTOM STYLES --- */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+        
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -62,15 +69,10 @@
             animation: shine 4s linear infinite;
         }
         @keyframes shine { to { background-position: 200% center; } }
-        .lyrics-glow {
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(251, 191, 36, 0.3);
-        }
         
         .bg-hero-custom {
-            /* TODO: Replace the URL below with your local image file. 
-                Example: url('church_main.jpg'); 
-            */
-            background-image: linear-gradient(to bottom, rgba(23, 37, 84, 0.8), rgba(23, 37, 84, 0.4)), url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            /* Using a local placeholder image from the zz folder */
+            background-image: linear-gradient(to bottom, rgba(23, 37, 84, 0.85), rgba(23, 37, 84, 0.5)), url('zz/church_hero.jpeg');
             background-size: cover;
             background-position: center;
         }
@@ -79,65 +81,74 @@
         #lightbox {
             transition: opacity 0.3s ease;
         }
+        
+        /* Song Lyrics Styles */
+        .lyrics-text {
+            line-height: 2;
+            white-space: pre-line;
+        }
     </style>
 </head>
-<body class="font-body text-gray-800 bg-white overflow-x-hidden">
+<body class="font-body text-gray-800 bg-white">
 
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4">
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4 border-b border-transparent">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center space-x-2">
                 <i class="fas fa-cross text-gold-500 text-2xl"></i>
-                <a href="#" class="text-white font-display text-xl tracking-widest font-bold uppercase">
+                <a href="#" class="text-white font-display text-lg md:text-xl tracking-widest font-bold uppercase truncate">
                     Zion Ministries
                 </a>
             </div>
             
-            <div class="hidden md:flex space-x-6 items-center">
-                <a href="#pastor" class="text-white hover:text-gold-400 transition text-sm uppercase tracking-wide">Pastor</a>
-                <a href="#speakers" class="text-white hover:text-gold-400 transition text-sm uppercase tracking-wide">Speakers</a>
-                <a href="#construction" class="text-white hover:text-gold-400 transition text-sm uppercase tracking-wide">Journey</a>
-                <a href="#program" class="text-white hover:text-gold-400 transition text-sm uppercase tracking-wide">Program</a>
-                <a href="#services" class="text-white hover:text-gold-400 transition text-sm uppercase tracking-wide">Services</a>
-                <a href="#lyrics" class="text-white hover:text-gold-400 transition text-sm uppercase tracking-wide">Songs</a>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-4 lg:space-x-6 items-center">
+                <a href="#pastor" class="text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide">Pastor</a>
+                <a href="#speakers" class="text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide">Speakers</a>
+                <a href="#construction" class="text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide">Journey</a>
+                <a href="#program" class="text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide">Program</a>
+                <a href="#lyrics" class="text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide">Songs</a>
+                <a href="#services" class="text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide">Services</a>
                 
-                <a href="#live" class="text-red-400 hover:text-red-300 font-bold transition text-sm uppercase tracking-wide flex items-center gap-2">
-                    <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span> Watch Live
+                <a href="#live" class="text-red-400 hover:text-red-300 font-bold transition text-xs lg:text-sm uppercase tracking-wide flex items-center gap-2">
+                    <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span> Live
                 </a>
                 
-                <a href="#contact" class="px-6 py-2 bg-gradient-to-r from-gold-500 to-gold-600 text-white font-bold rounded-full shadow-lg hover:shadow-gold-500/50 transition transform hover:-translate-y-0.5">
-                    Contact Us
+                <a href="#contact" class="px-5 py-2 bg-gradient-to-r from-gold-500 to-gold-600 text-white font-bold rounded-full shadow-lg hover:shadow-gold-500/50 transition transform hover:-translate-y-0.5 text-xs lg:text-sm">
+                    Contact
                 </a>
             </div>
 
-            <button id="mobile-menu-btn" class="md:hidden text-white text-2xl focus:outline-none">
+            <button id="mobile-menu-btn" class="md:hidden text-white text-2xl focus:outline-none p-2">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
 
-        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-royal-900 border-t border-royal-800 p-6 flex-col space-y-4 shadow-xl text-center">
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-royal-900 border-t border-royal-800 p-6 flex-col space-y-4 shadow-xl text-center max-h-[80vh] overflow-y-auto">
             <a href="#pastor" class="text-white hover:text-gold-400 block py-2">Our Pastor</a>
             <a href="#speakers" class="text-white hover:text-gold-400 block py-2">Guest Speakers</a>
             <a href="#construction" class="text-white hover:text-gold-400 block py-2">Construction Journey</a>
             <a href="#program" class="text-white hover:text-gold-400 block py-2">Program Schedule</a>
-            <a href="#services" class="text-white hover:text-gold-400 block py-2">Weekly Services</a>
             <a href="#lyrics" class="text-white hover:text-gold-400 block py-2">Worship Songs</a>
+            <a href="#services" class="text-white hover:text-gold-400 block py-2">Weekly Services</a>
             <a href="#live" class="text-red-400 font-bold block py-2">Watch Live</a>
+            <a href="#contact" class="inline-block px-6 py-2 bg-gold-500 text-royal-900 font-bold rounded-full mt-2">Contact Us</a>
         </div>
     </nav>
 
-    <header class="relative h-screen bg-hero-custom bg-cover bg-center bg-fixed bg-no-repeat flex items-center justify-center text-center px-4">
-        <div class="relative z-10 max-w-5xl mx-auto">
-            <p class="text-gold-400 font-display tracking-[0.3em] uppercase mb-4 animate-fade-in-down">
+    <header class="relative min-h-screen bg-hero-custom bg-cover bg-center bg-fixed bg-no-repeat flex items-center justify-center text-center px-4 pt-20">
+        <div class="relative z-10 max-w-5xl mx-auto w-full">
+            <p class="text-gold-400 font-display tracking-[0.2em] md:tracking-[0.3em] uppercase mb-4 animate-fade-in-down text-sm md:text-base">
                 Presence • Revival • Celebration
             </p>
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-display text-white mb-2 leading-tight drop-shadow-2xl font-bold">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display text-white mb-4 leading-tight drop-shadow-2xl font-bold break-words">
                 ZION MINISTRIES
             </h1>
-            <h2 class="text-2xl md:text-3xl font-serif text-white/90 mb-8 italic">
+            <h2 class="text-xl md:text-3xl font-serif text-white/90 mb-8 italic px-4">
                 Grand Church Opening Celebration
             </h2>
             
-            <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 text-white mb-10 font-serif text-lg md:text-xl bg-royal-900/50 backdrop-blur-sm p-4 rounded-xl border border-white/10 inline-flex">
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 text-white mb-10 font-serif text-lg md:text-xl bg-royal-900/50 backdrop-blur-sm p-4 rounded-xl border border-white/10 mx-auto max-w-fit">
                 <div class="flex items-center gap-2">
                     <i class="fas fa-map-marker-alt text-gold-500"></i>
                     <span>Kothagudem</span>
@@ -154,14 +165,11 @@
                 </div>
             </div>
 
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#live" class="px-8 py-3 bg-red-600 text-white font-bold rounded uppercase tracking-widest hover:bg-red-700 transition duration-300 shadow-lg shadow-red-600/30 flex items-center justify-center gap-2">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-md sm:max-w-none mx-auto px-4">
+                <a href="#live" class="w-full sm:w-auto px-8 py-3 bg-red-600 text-white font-bold rounded uppercase tracking-widest hover:bg-red-700 transition duration-300 shadow-lg shadow-red-600/30 flex items-center justify-center gap-2">
                     <i class="fas fa-play"></i> Watch Live
                 </a>
-                <a href="#construction" class="px-8 py-3 bg-white text-royal-900 font-bold rounded uppercase tracking-widest hover:bg-gray-100 transition duration-300">
-                    View Journey
-                </a>
-                <a href="#program" class="px-8 py-3 border border-white text-white font-bold rounded uppercase tracking-widest hover:bg-white/10 transition duration-300">
+                <a href="#program" class="w-full sm:w-auto px-8 py-3 bg-white text-royal-900 font-bold rounded uppercase tracking-widest hover:bg-gray-100 transition duration-300">
                     Schedule
                 </a>
             </div>
@@ -174,19 +182,19 @@
         </div>
     </header>
 
-    <section id="pastor" class="py-20 bg-white reveal">
+    <section id="pastor" class="py-16 md:py-20 bg-white reveal">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="w-full md:w-1/2 relative">
-                    <div class="absolute inset-0 bg-gold-500 transform translate-x-4 translate-y-4 rounded-lg"></div>
-                    <img src="zz/pastor_vijay.jpeg" alt="Pastor Vijay Kumar" class="relative rounded-lg shadow-2xl w-full object-cover h-[500px]">
+                    <div class="absolute inset-0 bg-gold-500 transform translate-x-3 translate-y-3 md:translate-x-4 md:translate-y-4 rounded-lg"></div>
+                    <img src="zz/pastor_vijay.jpeg" alt="Pastor Vijay Kumar" class="relative rounded-lg shadow-2xl w-full object-cover h-[400px] md:h-[500px]">
                 </div>
                 
                 <div class="w-full md:w-1/2 text-center md:text-left">
                     <span class="text-gold-600 font-bold tracking-widest uppercase text-sm mb-2 block">
                         Host & Founder
                     </span>
-                    <h2 class="text-4xl md:text-5xl font-serif text-royal-900 mb-6 font-bold">
+                    <h2 class="text-3xl md:text-5xl font-serif text-royal-900 mb-6 font-bold">
                         Pastor Vijay Kumar
                     </h2>
                     <div class="w-24 h-1 bg-gold-500 mx-auto md:mx-0 mb-8"></div>
@@ -201,37 +209,30 @@
                     <p class="text-gray-600 leading-relaxed mb-6">
                         Under Pastor Vijay Kumar's visionary leadership, Zion Ministries has grown from a humble gathering to a movement of faith. We invite you to join us as we dedicate this temple to the Glory of God.
                     </p>
-                    
-                    <div class="flex gap-4 justify-center md:justify-start">
-                        <span class="px-4 py-2 bg-royal-100 text-royal-800 rounded-full text-sm font-bold">#Revival</span>
-                        <span class="px-4 py-2 bg-royal-100 text-royal-800 rounded-full text-sm font-bold">#Dedication</span>
-                        <span class="px-4 py-2 bg-royal-100 text-royal-800 rounded-full text-sm font-bold">#Thanksgiving</span>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="speakers" class="py-20 bg-royal-900 text-white">
+    <section id="speakers" class="py-16 md:py-20 bg-royal-900 text-white">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16 reveal">
+            <div class="text-center mb-12 md:mb-16 reveal">
                 <span class="text-gold-400 uppercase tracking-widest text-sm font-bold">God's Servants</span>
-                <h2 class="text-4xl font-serif mt-2">Special Guest Speakers</h2>
+                <h2 class="text-3xl md:text-4xl font-serif mt-2">Special Guest Speakers</h2>
                 <div class="w-24 h-1 bg-gold-500 mx-auto mt-4"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
                 <div class="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition duration-500 reveal">
                     <div class="flex flex-col md:flex-row h-full">
                         <div class="md:w-2/5 h-64 md:h-auto">
                             <img src="zz/Layer 16.jpg" alt="Apostle Steeven Garu" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                         </div>
-                        <div class="p-8 md:w-3/5 flex flex-col justify-center text-left">
-                            <h3 class="text-2xl font-serif font-bold text-white mb-1">Apostle Steeven Garu</h3>
+                        <div class="p-6 md:p-8 md:w-3/5 flex flex-col justify-center text-left">
+                            <h3 class="text-xl md:text-2xl font-serif font-bold text-white mb-1">Apostle Steeven Garu</h3>
                             <p class="text-gold-400 font-bold text-sm uppercase mb-4">Manuguru</p>
                             <div class="h-px w-full bg-white/20 mb-4"></div>
                             <p class="text-gray-300 text-sm mb-2"><i class="fas fa-church mr-2 text-gold-500"></i> House of Hope Ministries</p>
-                            <p class="text-gray-400 text-sm">A powerful voice for this generation, bringing a message of hope and restoration.</p>
                         </div>
                     </div>
                 </div>
@@ -241,12 +242,11 @@
                          <div class="md:w-2/5 h-64 md:h-auto">
                             <img src="zz/YESUPADHAM.jpg" alt="Rev Yesupadam Garu" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                         </div>
-                        <div class="p-8 md:w-3/5 flex flex-col justify-center text-left">
-                            <h3 class="text-2xl font-serif font-bold text-white mb-1">Rev Yesupadam Garu</h3>
+                        <div class="p-6 md:p-8 md:w-3/5 flex flex-col justify-center text-left">
+                            <h3 class="text-xl md:text-2xl font-serif font-bold text-white mb-1">Rev Yesupadam Garu</h3>
                             <p class="text-gold-400 font-bold text-sm uppercase mb-4">Hyderabad</p>
                             <div class="h-px w-full bg-white/20 mb-4"></div>
                             <p class="text-gray-300 text-sm mb-2"><i class="fas fa-church mr-2 text-gold-500"></i> Berachah Ministries</p>
-                            <p class="text-gray-400 text-sm">Known for deep biblical insights and a heart for evangelism.</p>
                         </div>
                     </div>
                 </div>
@@ -254,23 +254,26 @@
         </div>
     </section>
 
-    <section id="construction" class="py-20 bg-slate-50 relative overflow-hidden">
+    <section id="construction" class="py-16 md:py-20 bg-slate-50 relative overflow-hidden">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-4xl font-serif text-royal-900">From Vision to Victory</h2>
+            <div class="text-center mb-12 md:mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-serif text-royal-900">From Vision to Victory</h2>
                 <p class="text-gray-500 mt-2">Our Construction Journey (Click photos to enlarge)</p>
             </div>
 
             <div class="relative max-w-6xl mx-auto">
                 <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-gold-300"></div>
 
-                <div class="relative flex items-center justify-between md:flex-row-reverse mb-16 reveal">
+                <!-- Item 1 -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between md:flex-row-reverse mb-12 md:mb-16 reveal">
                     <div class="hidden md:block w-5/12 text-left pl-12">
                         <h3 class="text-3xl font-serif text-royal-900">Demolition & Site Prep</h3>
                         <p class="text-gray-600 mt-2 text-lg">Clearing the old to make way for the new glory.</p>
                     </div>
-                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-royal-900 border-4 border-gold-400 rounded-full z-10"></div>
-                    <div class="pl-12 md:pr-12 md:pl-0 w-full md:w-5/12">
+                    <!-- Dot -->
+                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-royal-900 border-4 border-gold-400 rounded-full z-10 translate-y-2 md:translate-y-0"></div>
+                    <!-- Content -->
+                    <div class="pl-12 md:pr-12 md:pl-0 w-full md:w-5/12 mt-2 md:mt-0">
                          <div class="bg-white p-4 rounded-xl shadow-xl group hover:shadow-2xl transition duration-300">
                             <div class="grid grid-cols-2 gap-3">
                                 <img src="zz/demolish.jpeg" onclick="openLightbox(this.src)" alt="Demolition 1" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
@@ -278,19 +281,21 @@
                                 <img src="zz/WhatsApp Image 2025-12-09 at 4.44.13 PM (1).jpeg" onclick="openLightbox(this.src)" alt="Site Prep" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02] col-span-2">
                             </div>
                             <div class="md:hidden mt-4 px-2 pb-2">
-                                <h3 class="text-2xl font-serif text-royal-900">Demolition & Site Prep</h3>
+                                <h3 class="text-xl font-serif text-royal-900 font-bold">Demolition & Site Prep</h3>
+                                <p class="text-sm text-gray-600">Clearing the old to make way for the new glory.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="relative flex items-center justify-between md:justify-normal mb-16 reveal">
+                <!-- Item 2 -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between md:justify-normal mb-12 md:mb-16 reveal">
                     <div class="hidden md:block w-5/12 text-right pr-12">
                         <h3 class="text-3xl font-serif text-royal-900">Foundation</h3>
                         <p class="text-gray-600 mt-2 text-lg">Laying the spiritual and physical cornerstone.</p>
                     </div>
-                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-royal-900 border-4 border-gold-400 rounded-full z-10"></div>
-                    <div class="pl-12 md:pl-12 w-full md:w-5/12">
+                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-royal-900 border-4 border-gold-400 rounded-full z-10 translate-y-2 md:translate-y-0"></div>
+                    <div class="pl-12 md:pl-12 w-full md:w-5/12 mt-2 md:mt-0">
                         <div class="bg-white p-4 rounded-xl shadow-xl group hover:shadow-2xl transition duration-300">
                             <div class="grid grid-cols-2 gap-3">
                                 <img src="zz/ground 2.jpeg" onclick="openLightbox(this.src)" alt="Cornerstone" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02] col-span-2">
@@ -298,19 +303,21 @@
                                 <img src="zz/ground 3.jpeg" onclick="openLightbox(this.src)" alt="Foundation 2" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
                             </div>
                             <div class="md:hidden mt-4 px-2 pb-2">
-                                <h3 class="text-2xl font-serif text-royal-900">Foundation</h3>
+                                <h3 class="text-xl font-serif text-royal-900 font-bold">Foundation</h3>
+                                <p class="text-sm text-gray-600">Laying the spiritual and physical cornerstone.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="relative flex items-center justify-between md:flex-row-reverse mb-16 reveal">
+                <!-- Item 3 -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between md:flex-row-reverse mb-12 md:mb-16 reveal">
                     <div class="hidden md:block w-5/12 text-left pl-12">
                         <h3 class="text-3xl font-serif text-royal-900">Pillars & Structure</h3>
                         <p class="text-gray-600 mt-2 text-lg">The framework of faith rising up.</p>
                     </div>
-                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-royal-900 border-4 border-gold-400 rounded-full z-10"></div>
-                    <div class="pl-12 md:pr-12 md:pl-0 w-full md:w-5/12">
+                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-royal-900 border-4 border-gold-400 rounded-full z-10 translate-y-2 md:translate-y-0"></div>
+                    <div class="pl-12 md:pr-12 md:pl-0 w-full md:w-5/12 mt-2 md:mt-0">
                          <div class="bg-white p-4 rounded-xl shadow-xl group hover:shadow-2xl transition duration-300">
                             <div class="grid grid-cols-2 gap-3">
                                 <img src="https://placehold.co/600x800/EEE/31343C?text=Pillars" onclick="openLightbox(this.src)" alt="Structure 1" class="cursor-pointer rounded-lg w-full h-80 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02] row-span-2">
@@ -318,19 +325,20 @@
                                 <img src="https://placehold.co/600x400/EEE/31343C?text=Walls" onclick="openLightbox(this.src)" alt="Structure 3" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
                             </div>
                             <div class="md:hidden mt-4 px-2 pb-2">
-                                <h3 class="text-2xl font-serif text-royal-900">Pillars & Structure</h3>
+                                <h3 class="text-xl font-serif text-royal-900 font-bold">Pillars & Structure</h3>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="relative flex items-center justify-between md:justify-normal mb-16 reveal">
+                <!-- Item 4 -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between md:justify-normal mb-12 md:mb-16 reveal">
                     <div class="hidden md:block w-5/12 text-right pr-12">
                         <h3 class="text-3xl font-serif text-royal-900">Roofing & Interior</h3>
                         <p class="text-gray-600 mt-2 text-lg">Preparing the sanctuary for worship.</p>
                     </div>
-                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-royal-900 border-4 border-gold-400 rounded-full z-10"></div>
-                    <div class="pl-12 md:pl-12 w-full md:w-5/12">
+                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-royal-900 border-4 border-gold-400 rounded-full z-10 translate-y-2 md:translate-y-0"></div>
+                    <div class="pl-12 md:pl-12 w-full md:w-5/12 mt-2 md:mt-0">
                         <div class="bg-white p-4 rounded-xl shadow-xl group hover:shadow-2xl transition duration-300">
                             <div class="grid grid-cols-3 gap-3">
                                 <img src="https://placehold.co/800x400/EEE/31343C?text=Roof" onclick="openLightbox(this.src)" alt="Roofing" class="cursor-pointer rounded-lg w-full h-32 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02] col-span-3">
@@ -339,19 +347,20 @@
                                 <img src="https://placehold.co/400x400/EEE/31343C?text=Paint" onclick="openLightbox(this.src)" alt="Painting" class="cursor-pointer rounded-lg w-full h-32 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
                             </div>
                             <div class="md:hidden mt-4 px-2 pb-2">
-                                <h3 class="text-2xl font-serif text-royal-900">Roofing & Interior</h3>
+                                <h3 class="text-xl font-serif text-royal-900 font-bold">Roofing & Interior</h3>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="relative flex items-center justify-between md:flex-row-reverse mb-16 reveal">
+                <!-- Item 5 -->
+                <div class="relative flex flex-col md:flex-row items-center justify-between md:flex-row-reverse mb-12 md:mb-16 reveal">
                     <div class="hidden md:block w-5/12 text-left pl-12">
                         <h3 class="text-3xl font-serif text-royal-900">Final Completed Church</h3>
                         <p class="text-gray-600 mt-2 text-lg">The Victory - Ready for dedication.</p>
                     </div>
-                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gold-500 border-4 border-royal-900 rounded-full z-10 animate-pulse"></div>
-                    <div class="pl-12 md:pr-12 md:pl-0 w-full md:w-5/12">
+                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gold-500 border-4 border-royal-900 rounded-full z-10 animate-pulse translate-y-2 md:translate-y-0"></div>
+                    <div class="pl-12 md:pr-12 md:pl-0 w-full md:w-5/12 mt-2 md:mt-0">
                          <div class="bg-white p-4 rounded-xl shadow-xl group hover:shadow-2xl transition duration-300">
                             <div class="grid grid-cols-2 gap-3">
                                 <img src="https://placehold.co/800x600/1e3a8a/FFF?text=Main+Church+Photo" onclick="openLightbox(this.src)" alt="Main View" class="cursor-pointer rounded-lg w-full h-64 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02] col-span-2 shadow-lg">
@@ -359,7 +368,7 @@
                                 <img src="https://placehold.co/400x400/EEE/31343C?text=Night+View" onclick="openLightbox(this.src)" alt="Night View" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
                             </div>
                             <div class="md:hidden mt-4 px-2 pb-2">
-                                <h3 class="text-2xl font-serif text-royal-900">Final Completed Church</h3>
+                                <h3 class="text-xl font-serif text-royal-900 font-bold">Final Completed Church</h3>
                             </div>
                         </div>
                     </div>
@@ -369,17 +378,18 @@
         </div>
     </section>
 
-    <section id="program" class="py-20 bg-royal-950 text-white relative">
+    <section id="program" class="py-16 md:py-20 bg-royal-950 text-white relative">
         <div class="absolute top-0 right-0 w-64 h-64 bg-gold-500 opacity-5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
         <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500 opacity-10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
 
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-12 reveal">
                 <span class="text-gold-400 uppercase tracking-widest text-sm font-bold">11 December 2025</span>
-                <h2 class="text-4xl font-serif mt-2">Opening Day Program</h2>
+                <h2 class="text-3xl md:text-4xl font-serif mt-2">Opening Day Program</h2>
             </div>
 
             <div class="max-w-3xl mx-auto space-y-6">
+                <!-- Program Items... (Same content as before) -->
                 <div class="bg-white/5 border border-white/10 p-6 rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6 hover:bg-white/10 transition reveal">
                     <div class="flex-shrink-0 w-20 h-20 bg-royal-800 rounded-full flex items-center justify-center border-2 border-gold-500 text-gold-400 text-center flex-col leading-tight">
                         <span class="text-sm font-bold">9:00</span>
@@ -427,168 +437,256 @@
         </div>
     </section>
 
-    <section id="services" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <span class="text-gold-600 uppercase tracking-widest text-sm font-bold">Join Us Weekly</span>
-                <h2 class="text-4xl font-serif text-royal-900 mt-2">Weekly Worship Services</h2>
-                <div class="w-24 h-1 bg-gold-500 mx-auto mt-4"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-                <div class="bg-royal-50 p-8 rounded-xl border border-royal-100 hover:shadow-xl transition duration-300 text-center reveal">
-                    <div class="w-16 h-16 bg-royal-900 text-gold-400 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
-                        <i class="fas fa-church"></i>
-                    </div>
-                    <h3 class="text-2xl font-serif font-bold text-royal-900 mb-2">Sunday Service</h3>
-                    <p class="text-gold-600 font-bold mb-4 uppercase text-sm tracking-wide">Main Worship</p>
-                    <p class="text-gray-600">Join us for a time of powerful praise, worship, and the Word of God.</p>
-                    <div class="mt-6 pt-6 border-t border-gray-200">
-                        <p class="text-xl font-bold text-royal-800">8:00 AM</p>
-                    </div>
-                </div>
-
-                <div class="bg-royal-50 p-8 rounded-xl border border-royal-100 hover:shadow-xl transition duration-300 text-center reveal delay-100">
-                    <div class="w-16 h-16 bg-royal-900 text-gold-400 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
-                        <i class="fas fa-praying-hands"></i>
-                    </div>
-                    <h3 class="text-2xl font-serif font-bold text-royal-900 mb-2">Fasting Prayer</h3>
-                    <p class="text-gold-600 font-bold mb-4 uppercase text-sm tracking-wide">Every wednesday</p>
-                    <p class="text-gray-600">Dedicate time to seek God's face in prayer and intercession for our families and nation.</p>
-                    <div class="mt-6 pt-6 border-t border-gray-200">
-                        <p class="text-xl font-bold text-royal-800">7:00 PM</p>
-                    </div>
-                </div>
-                <div class="bg-royal-50 p-8 rounded-xl border border-royal-100 hover:shadow-xl transition duration-300 text-center reveal delay-300">
-                    <div class="w-16 h-16 bg-royal-900 text-gold-400 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
-                        <i class="fas fa-child"></i>
-                    </div>
-                    <h3 class="text-2xl font-serif font-bold text-royal-900 mb-2">Sunday School</h3>
-                    <p class="text-gold-600 font-bold mb-4 uppercase text-sm tracking-wide">For Kids</p>
-                    <p class="text-gray-600">Fun-filled biblical teaching, songs, and activities to build a strong foundation for children.</p>
-                    <div class="mt-6 pt-6 border-t border-gray-200">
-                        <p class="text-xl font-bold text-royal-800">10:00 AM</p>
-                    </div>
-                </div>
-                <div class="bg-royal-50 p-8 rounded-xl border border-royal-100 hover:shadow-xl transition duration-300 text-center reveal delay-200">
-                    <div class="w-16 h-16 bg-royal-900 text-gold-400 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
-                        <i class="fas fa-book-open"></i>
-                    </div>
-                    <h3 class="text-2xl font-serif font-bold text-royal-900 mb-2">Women's meeting</h3>
-                    <p class="text-gold-600 font-bold mb-4 uppercase text-sm tracking-wide">Every friday</p>
-                    <p class="text-gray-600">Deep dive into the scriptures to grow in knowledge and spiritual maturity.</p>
-                    <div class="mt-6 pt-6 border-t border-gray-200">
-                        <p class="text-xl font-bold text-royal-800">11:00 AM</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="live" class="py-24 bg-black relative text-center">
+    <section id="live" class="py-16 md:py-24 bg-black relative text-center">
         <div class="container mx-auto px-6 relative z-10">
             <span class="text-red-500 font-bold uppercase tracking-widest text-sm mb-4 inline-block animate-pulse">
                 <i class="fas fa-circle text-xs mr-2"></i> Live Stream
             </span>
             <h2 class="text-3xl md:text-5xl font-serif text-white mb-8">Watch Zion Ministries Opening Live</h2>
             
-            <div class="max-w-4xl mx-auto aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-2xl border border-gray-800 flex items-center justify-center group cursor-pointer relative">
-                <img src="https://placehold.co/1920x1080/111/444?text=Live+Stream+Placeholder" alt="Live Stream" class="w-full h-full object-cover opacity-50">
+            <a href="https://youtube.com/live/4b2sXYKiVGc?feature=share" target="_blank" class="block max-w-4xl mx-auto aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-2xl border border-gray-800 flex items-center justify-center group cursor-pointer relative hover:border-red-600 transition duration-300">
+                <img src="zz/live.jpeg" alt="Live Stream" class="w-full h-full object-cover opacity-50 group-hover:opacity-70 transition duration-300">
                 <div class="absolute inset-0 flex items-center justify-center">
                     <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center text-white text-3xl shadow-lg group-hover:scale-110 transition duration-300">
                         <i class="fas fa-play ml-1"></i>
                     </div>
                 </div>
-            </div>
+            </a>
             
             <p class="text-gray-400 mt-8">Join us online on 11 December 2025 at 9:00 AM</p>
         </div>
     </section>
 
-    <section id="lyrics" class="py-20 bg-gray-900 border-t border-gray-800">
+    <section id="lyrics" class="py-16 md:py-20 bg-gray-900 border-t border-gray-800">
         <div class="container mx-auto px-6 max-w-4xl">
             <div class="text-center mb-12">
                 <span class="text-gold-400 uppercase tracking-widest text-sm font-bold">Praise & Worship</span>
-                <h2 class="text-4xl font-serif text-white mt-2">Song Lyrics</h2>
+                <h2 class="text-3xl md:text-4xl font-serif text-white mt-2">Song Lyrics</h2>
                 <div class="w-24 h-1 bg-gold-500 mx-auto mt-4"></div>
             </div>
 
             <div id="song-list" class="space-y-4">
                 
+                <!-- Telugu Songs Added Here -->
                 <div class="bg-royal-950 border border-gray-700 rounded-lg overflow-hidden song-item">
                     <div class="flex items-stretch">
-                        <button onclick="toggleLyrics('song1')" class="flex-grow px-6 py-4 flex justify-between items-center bg-royal-900 hover:bg-royal-800 transition focus:outline-none text-left">
+                        <button onclick="toggleLyrics('song_tel_1')" class="flex-grow px-4 md:px-6 py-4 flex justify-between items-center bg-royal-900 hover:bg-royal-800 transition focus:outline-none text-left">
                             <div class="flex items-center gap-4">
-                                <span class="song-number w-8 h-8 rounded-full bg-gold-500 text-royal-900 flex items-center justify-center font-bold text-sm">1</span>
-                                <span class="text-xl font-bold text-white">Way Maker</span>
+                                <span class="song-number w-8 h-8 rounded-full bg-gold-500 text-royal-900 flex items-center justify-center font-bold text-sm shrink-0">1</span>
+                                <span class="text-lg md:text-xl font-bold text-white font-telugu">ఇది దేవుని మందిరము</span>
                             </div>
-                            <i id="icon-song1" class="fas fa-plus text-gold-400 transition-transform duration-300"></i>
+                            <i id="icon-song_tel_1" class="fas fa-plus text-gold-400 transition-transform duration-300"></i>
                         </button>
                     </div>
-                    <div id="song1" class="hidden px-8 py-6 text-gray-300 leading-loose border-t border-gray-700 bg-black/20">
-                        <p class="font-bold text-gold-500 mb-2">[Verse 1]</p>
-                        You are here, moving in our midst<br>
-                        I worship You, I worship You<br>
-                        You are here, working in this place<br>
-                        I worship You, I worship You<br>
-                        <br>
-                        <p class="font-bold text-gold-500 mb-2">[Chorus]</p>
-                        Way maker, miracle worker, promise keeper<br>
-                        Light in the darkness<br>
-                        My God, that is who You are<br>
-                        Way maker, miracle worker, promise keeper<br>
-                        Light in the darkness<br>
-                        My God, that is who You are
+                    <div id="song_tel_1" class="hidden px-6 md:px-8 py-6 text-gray-300 lyrics-text border-t border-gray-700 bg-black/20 font-telugu text-lg">
+                        <p class="font-bold text-gold-500 mb-2">[Pallavi]</p>
+                        ఇది దేవుని మందిరము ప్రభు కోరుకున్న స్థలము || 2 ||
+                        దేవుని మహిమ నిలుచు స్థలము
+                        దేవుని కనుదృష్టి చూచు స్థలము
+                        ప్రార్థన మనవులు వినే స్థలము
+                        క్రీస్తు రూపముకు మార్చు స్థలము || 2 || (ఇది దేవుని మందిరము)
+
+                        <p class="font-bold text-gold-500 mb-2 mt-4">[Charanam 1]</p>
+                        మహా తేజస్సుతో ప్రభువే దిగివచ్చును || 2 ||
+                        స్తుతుల సింహాసనాసీనుడై ప్రభువె పరిపాలించును || 2 || (దేవుని మహిమ)
+
+                        <p class="font-bold text-gold-500 mb-2 mt-4">[Charanam 2]</p>
+                        ప్రభుని సన్నిధిలో పర్వతములైననూ || 2 ||
+                        మైనము వలే కరిగిపోవును బంధకములు తెగిపోవును || 2 || (దేవుని మహిమ)
+
+                        <p class="font-bold text-gold-500 mb-2 mt-4">[Charanam 3]</p>
+                        ప్రభువే మాట్లాడగ జీవితము మారును || 2 ||
+                        నూతన హృదయము పొందువారు క్రీస్తు రూపముకు
                     </div>
                 </div>
 
                 <div class="bg-royal-950 border border-gray-700 rounded-lg overflow-hidden song-item">
                     <div class="flex items-stretch">
-                        <button onclick="toggleLyrics('song2')" class="flex-grow px-6 py-4 flex justify-between items-center bg-royal-900 hover:bg-royal-800 transition focus:outline-none text-left">
-                             <div class="flex items-center gap-4">
-                                <span class="song-number w-8 h-8 rounded-full bg-gold-500 text-royal-900 flex items-center justify-center font-bold text-sm">2</span>
-                                <span class="text-xl font-bold text-white">10,000 Reasons (Bless the Lord)</span>
+                        <button onclick="toggleLyrics('song_tel_2')" class="flex-grow px-4 md:px-6 py-4 flex justify-between items-center bg-royal-900 hover:bg-royal-800 transition focus:outline-none text-left">
+                            <div class="flex items-center gap-4">
+                                <span class="song-number w-8 h-8 rounded-full bg-gold-500 text-royal-900 flex items-center justify-center font-bold text-sm shrink-0">2</span>
+                                <span class="text-lg md:text-xl font-bold text-white font-telugu">తన జాలి నీ పైన</span>
                             </div>
-                            <i id="icon-song2" class="fas fa-plus text-gold-400 transition-transform duration-300"></i>
+                            <i id="icon-song_tel_2" class="fas fa-plus text-gold-400 transition-transform duration-300"></i>
                         </button>
                     </div>
-                    <div id="song2" class="hidden px-8 py-6 text-gray-300 leading-loose border-t border-gray-700 bg-black/20">
-                        <p class="font-bold text-gold-500 mb-2">[Chorus]</p>
-                        Bless the Lord, O my soul, O my soul<br>
-                        Worship His holy name<br>
-                        Sing like never before, O my soul<br>
-                        I'll worship Your holy name<br>
-                        <br>
-                        <p class="font-bold text-gold-500 mb-2">[Verse 1]</p>
-                        The sun comes up, it's a new day dawning<br>
-                        It's time to sing Your song again<br>
-                        Whatever may pass and whatever lies before me<br>
-                        Let me be singing when the evening comes
+                    <div id="song_tel_2" class="hidden px-6 md:px-8 py-6 text-gray-300 lyrics-text border-t border-gray-700 bg-black/20 font-telugu text-lg">
+                        తన జాలి – నీ పైన
+                        వెయ్యి తరములు – ఉండు గాక
+                        నీ వంశం – సంతానం
+                        వారి పిల్లల – వారి పిల్లలు
+
+                        నీ ముందు – నీ వెనుక
+                        నీ పక్కన – నీ చుట్టూ
+                        నీతోనూ – నీలోనూ
+                        తన సన్నిధి ఉండు గాక
+
+                        ఉదయాన – సాయంత్రం
+                        నీ రాక – పోకలలో
+                        కన్నీటిలో – సంతోషంలో
+                        నీ పక్షం – నీ తోడు
+                        నీ నీడగా – ఉంటాడు
+                        మన ప్రభువు – నీ వాడు
+                        నా వాడు – మన వాడు
+
+                        నీ కోసం ఉంటాడు – నీ కోసం ఉంటాడు
+                        నీ కోసం ఉంటాడు – నీ కోసం ఉంటాడు
+
+                        ఆ.. ఆ.. ఆ.. ఆమెన్ ఆమెన్ ఆ.. ఆమెన్
+                        ఆ.. ఆ.. ఆ.. ఆమెన్ ఆమెన్ ఆ.. ఆమెన్ (3)
                     </div>
                 </div>
 
                 <div class="bg-royal-950 border border-gray-700 rounded-lg overflow-hidden song-item">
                     <div class="flex items-stretch">
-                        <button onclick="toggleLyrics('song3')" class="flex-grow px-6 py-4 flex justify-between items-center bg-royal-900 hover:bg-royal-800 transition focus:outline-none text-left">
-                             <div class="flex items-center gap-4">
-                                <span class="song-number w-8 h-8 rounded-full bg-gold-500 text-royal-900 flex items-center justify-center font-bold text-sm">3</span>
-                                <span class="text-xl font-bold text-white">Amazing Grace</span>
+                        <button onclick="toggleLyrics('song_tel_3')" class="flex-grow px-4 md:px-6 py-4 flex justify-between items-center bg-royal-900 hover:bg-royal-800 transition focus:outline-none text-left">
+                            <div class="flex items-center gap-4">
+                                <span class="song-number w-8 h-8 rounded-full bg-gold-500 text-royal-900 flex items-center justify-center font-bold text-sm shrink-0">3</span>
+                                <span class="text-lg md:text-xl font-bold text-white font-telugu">ఎంత రమ్యములు</span>
                             </div>
-                            <i id="icon-song3" class="fas fa-plus text-gold-400 transition-transform duration-300"></i>
+                            <i id="icon-song_tel_3" class="fas fa-plus text-gold-400 transition-transform duration-300"></i>
                         </button>
                     </div>
-                    <div id="song3" class="hidden px-8 py-6 text-gray-300 leading-loose border-t border-gray-700 bg-black/20">
-                        <p class="font-bold text-gold-500 mb-2">[Verse 1]</p>
-                        Amazing grace! How sweet the sound<br>
-                        That saved a wretch like me!<br>
-                        I once was lost, but now am found;<br>
-                        Was blind, but now I see.<br>
-                        <br>
-                        <p class="font-bold text-gold-500 mb-2">[Verse 2]</p>
-                        'Twas grace that taught my heart to fear,<br>
-                        And grace my fears relieved;<br>
-                        How precious did that grace appear<br>
-                        The hour I first believed.
+                    <div id="song_tel_3" class="hidden px-6 md:px-8 py-6 text-gray-300 lyrics-text border-t border-gray-700 bg-black/20 font-telugu text-lg">
+                        <p class="font-bold text-gold-500 mb-2">[Pallavi]</p>
+                        ఎంత రమ్యములు దేవా యెహోవా నీ నివాసములు
+                        నీ మందిరావరణములు చూడ ఆశగొంటిని
+
+                        హల్లెలూయ హల్లెలూయ ఆ ఆ ఆ ..హల్లెలూయ
+
+                        <p class="font-bold text-gold-500 mb-2 mt-4">[Charanam 1]</p>
+                        జీవముగల దేవా నిన్నుదర్శింప నా హృదయం
+                        నా దేహము ఆనందముతో కేకలు వేయుచున్నది  || హల్లెలూయ ||
+
+                        <p class="font-bold text-gold-500 mb-2 mt-4">[Charanam 2]</p>
+                        నీ మందిరమున నివసించె వారెంతో ధన్యులు
+                        నీ వలన బలమునొందు వారెంతో ధన్యులు  || హల్లెలూయ ||
+
+                        <p class="font-bold text-gold-500 mb-2 mt-4">[Charanam 3]</p>
+                        నీ ఆవరణములో దినము గడుపుటయే శ్రేష్ఠము
+                        నీ మందిర ద్వారము నొద్దనుండుట నా కిష్టము  || హల్లెలూయ ||
+                    </div>
+                </div>
+
+                <div class="bg-royal-950 border border-gray-700 rounded-lg overflow-hidden song-item">
+                    <div class="flex items-stretch">
+                        <button onclick="toggleLyrics('song_tel_4')" class="flex-grow px-4 md:px-6 py-4 flex justify-between items-center bg-royal-900 hover:bg-royal-800 transition focus:outline-none text-left">
+                            <div class="flex items-center gap-4">
+                                <span class="song-number w-8 h-8 rounded-full bg-gold-500 text-royal-900 flex items-center justify-center font-bold text-sm shrink-0">4</span>
+                                <span class="text-lg md:text-xl font-bold text-white font-telugu">వర్ధిల్లెదము</span>
+                            </div>
+                            <i id="icon-song_tel_4" class="fas fa-plus text-gold-400 transition-transform duration-300"></i>
+                        </button>
+                    </div>
+                    <div id="song_tel_4" class="hidden px-6 md:px-8 py-6 text-gray-300 lyrics-text border-t border-gray-700 bg-black/20 font-telugu text-lg">
+                        వర్ధిల్లెదము - మన దేవుని మందిరమందున
+                        నాటబడినవారమై
+                        నీతిమంతులమై - మొవ్వ వేయుదుము
+                        యేసు రక్తములోనే - జయము మనకు జయమే
+                        స్తుతి స్తోత్రములోనే - జయము మనకు జయమే
+
+                        యెహోవా మందిర ఆవరణములో ఎన్నెన్నో మేళ్ళు కలవు
+                        ఆయన సన్నిధిలోనే నిలిచి - అనుభవింతుము ప్రతి మేలును // వరి //
+
+                        యేసయ్య సిలువ బలియాగములో అత్యున్నత ప్రేమ కలదు
+                        ఆయన సముఖములోనే నిలిచి - పొందెదము శాశ్వత కృపను // వర్ధి //
+
+                        పరిశుద్ధాత్ముని అభిషేకములో - ఎంతో ఆదరణ కలదు
+                        ఆయన మహిమైశ్వర్యము మన దుఃఖము సంతోషముగా మార్చును // వరి //
+                    </div>
+                </div>
+
+                <div class="bg-royal-950 border border-gray-700 rounded-lg overflow-hidden song-item">
+                    <div class="flex items-stretch">
+                        <button onclick="toggleLyrics('song_tel_5')" class="flex-grow px-4 md:px-6 py-4 flex justify-between items-center bg-royal-900 hover:bg-royal-800 transition focus:outline-none text-left">
+                            <div class="flex items-center gap-4">
+                                <span class="song-number w-8 h-8 rounded-full bg-gold-500 text-royal-900 flex items-center justify-center font-bold text-sm shrink-0">5</span>
+                                <span class="text-lg md:text-xl font-bold text-white font-telugu">ఇది యెహోవా ఏర్పాటు చేసిన దినము</span>
+                            </div>
+                            <i id="icon-song_tel_5" class="fas fa-plus text-gold-400 transition-transform duration-300"></i>
+                        </button>
+                    </div>
+                    <div id="song_tel_5" class="hidden px-6 md:px-8 py-6 text-gray-300 lyrics-text border-t border-gray-700 bg-black/20 font-telugu text-lg">
+                        <p class="font-bold text-gold-500 mb-2">[Pallavi]</p>
+                        ఇది యెహోవా ఏర్పాటు చేసిన దినము దీనియందు
+                        ఉత్సహించి సంతోషించెదము నా రక్షణకర్తయైన యెహోవా
+                        యందు ఆనందించెదను యెహోవాయే నా బలమా
+                        యెహోవాయే ఆనందం యేసులోనే ఆనందం-హల్లెలూయా
+                        ఆనందమే 12
+
+                        <p class="font-bold text-gold-500 mb-2 mt-4">[Charanam 1]</p>
+                        మార్పులేనిది-మధురమైనది యేసు నీ ప్రేమ అనుదినము
+                        నూతనముగా ఆయనకు వాత్సల్యత పుట్టుచున్నది. ఆయన
+                        ఎంతైనా నమ్మదగిన దేవుడు ||యేసులోనే||
+
+                        <p class="font-bold text-gold-500 mb-2 mt-4">[Charanam 2]</p>
+                        ఊహించని ఉపకారములెన్నో చేసెను మరువలేని
+                        మహత్తైనకార్యములను చేసెను జయమునిచ్చి నడిపించెను
+                        జయశీలుడు ||యేసులోనే||
+                    </div>
+                </div>
+
+                <div class="bg-royal-950 border border-gray-700 rounded-lg overflow-hidden song-item">
+                    <div class="flex items-stretch">
+                        <button onclick="toggleLyrics('song_tel_6')" class="flex-grow px-4 md:px-6 py-4 flex justify-between items-center bg-royal-900 hover:bg-royal-800 transition focus:outline-none text-left">
+                            <div class="flex items-center gap-4">
+                                <span class="song-number w-8 h-8 rounded-full bg-gold-500 text-royal-900 flex items-center justify-center font-bold text-sm shrink-0">6</span>
+                                <span class="text-lg md:text-xl font-bold text-white font-telugu">నీ మందిరములో నేనుండుట</span>
+                            </div>
+                            <i id="icon-song_tel_6" class="fas fa-plus text-gold-400 transition-transform duration-300"></i>
+                        </button>
+                    </div>
+                    <div id="song_tel_6" class="hidden px-6 md:px-8 py-6 text-gray-300 lyrics-text border-t border-gray-700 bg-black/20 font-telugu text-lg">
+                        నీ మందిరములో నేనుండుట -
+                        నాకెంతో భాగ్యము
+                        నీ సన్నిధిలో నే గడుపుట నీవు నాకిచ్చిన వరము -2
+                        ఎంత భాగ్యము నాక్కిచితివి - ఎంత ధన్యత నా కొసగితివి-2
+                        నా హృదయం వుపొంగెను నా మనసు పుల్లసించేను-2
+                        "నీ మందిర"
+
+                        <p class="font-bold text-gold-500 mb-2 mt-4">[Charanam 1]</p>
+                        సర్వ సంపదల కన్న మిన్నఅయినది-
+                        సర్వ సృష్టి కన్న - నీ సన్నిధి
+                        నీ పలి పీఠము నోద్ధ - నీ పరిచర్యను చేయ-2
+                        ఎంతో కృప నిచితివి-
+                        నా కెంతో గణతిచితివి -2
+                        "నీ మందిర"
+
+                        <p class="font-bold text-gold-500 mb-2 mt-4">[Charanam 2]</p>
+                        నీ మందిర సమృద్ధితో - నను తృప్తి పరచితివి
+                        నీటి కాలువలు యోరణ నన్ను నాటితివి-2
+                        జీవ జలములతో సేద తీర్చితివి-2
+                        ఎంతో కృప నిచితివి
+                        నా కెంతో గణతిచితివి -2
+                        "నీ మందిర"
+                    </div>
+                </div>
+
+                 <div class="bg-royal-950 border border-gray-700 rounded-lg overflow-hidden song-item">
+                    <div class="flex items-stretch">
+                        <button onclick="toggleLyrics('song_tel_7')" class="flex-grow px-4 md:px-6 py-4 flex justify-between items-center bg-royal-900 hover:bg-royal-800 transition focus:outline-none text-left">
+                            <div class="flex items-center gap-4">
+                                <span class="song-number w-8 h-8 rounded-full bg-gold-500 text-royal-900 flex items-center justify-center font-bold text-sm shrink-0">7</span>
+                                <span class="text-lg md:text-xl font-bold text-white font-telugu">రండి స్తుతించుచు పాడుడి</span>
+                            </div>
+                            <i id="icon-song_tel_7" class="fas fa-plus text-gold-400 transition-transform duration-300"></i>
+                        </button>
+                    </div>
+                    <div id="song_tel_7" class="hidden px-6 md:px-8 py-6 text-gray-300 lyrics-text border-t border-gray-700 bg-black/20 font-telugu text-lg">
+                        రండి స్తుతించుచు పాడుడి - రారాజు యేసుని చేరుడి
+                        "హల్లెలూయ హల్లెలూయ - హల్లెలూయ హల్లెలూయ"
+
+                        <p class="font-bold text-gold-500 mb-2 mt-4">[Charanam 1]</p>
+                        ప్రభు యేసు కాంతిలో నిలచి - సాగించు జీవితయాత్ర
+                        బాధలన్నిటీన్ బాపున్ - భజియించు యేసుని నామం || హల్లెలూయ||
+
+                        <p class="font-bold text-gold-500 mb-2 mt-4">[Charanam 2]</p>
+                        విలువైన నీ జీవితమున్ - వెలిగించుము ప్రభుకొరకు
+                        పరిశుద్ధాత్మను పొంది - ప్రభు వాక్కులు ప్రచురించు || హల్లెలూయ||
+
+                        <p class="font-bold text-gold-500 mb-2 mt-4">[Charanam 3]</p>
+                        మరణము జయించి లేచెన్ - మరణపు ముల్లును విరిచెన్
+                        మధురము యేసుని నామం - మరువకు యేసుని ధ్యానం || హల్లెలూయ||
                     </div>
                 </div>
 
@@ -596,10 +694,10 @@
         </div>
     </section>
 
-    <section class="py-20 bg-white">
+    <section id="testimonies" class="py-16 md:py-20 bg-white">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-4xl font-serif text-royal-900">Testimonies Wall</h2>
+            <div class="text-center mb-12 md:mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-serif text-royal-900">Testimonies Wall</h2>
                 <div class="flex flex-wrap justify-center gap-2 mt-6">
                 </div>
             </div>
@@ -633,7 +731,68 @@
         </div>
     </section>
 
-    <section id="contact" class="py-20 bg-royal-50">
+    <!-- Services moved here as requested -->
+    <section id="services" class="py-16 md:py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 md:mb-16 reveal">
+                <span class="text-gold-600 uppercase tracking-widest text-sm font-bold">Join Us Weekly</span>
+                <h2 class="text-3xl md:text-4xl font-serif text-royal-900 mt-2">Weekly Worship Services</h2>
+                <div class="w-24 h-1 bg-gold-500 mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                <div class="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-xl hover:border-gold-300 transition duration-300 text-center reveal">
+                    <div class="w-16 h-16 bg-royal-900 text-gold-400 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-royal-900 mb-2">Sunday Service</h3>
+                    <p class="text-gold-600 font-bold mb-4 uppercase text-sm tracking-wide">Main Worship</p>
+                    <p class="text-gray-600">Join us for a time of powerful praise, worship, and the Word of God.</p>
+                    <div class="mt-6 pt-6 border-t border-gray-100">
+                        <p class="text-xl font-bold text-royal-800">8:00 AM</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-xl hover:border-gold-300 transition duration-300 text-center reveal delay-100">
+                    <div class="w-16 h-16 bg-royal-900 text-gold-400 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
+                        <i class="fas fa-praying-hands"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-royal-900 mb-2">Fasting Prayer</h3>
+                    <p class="text-gold-600 font-bold mb-4 uppercase text-sm tracking-wide">Every Wednesday</p>
+                    <p class="text-gray-600">Dedicate time to seek God's face in prayer and intercession for our families and nation.</p>
+                    <div class="mt-6 pt-6 border-t border-gray-100">
+                        <p class="text-xl font-bold text-royal-800">7:00 PM</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-xl hover:border-gold-300 transition duration-300 text-center reveal delay-200">
+                    <div class="w-16 h-16 bg-royal-900 text-gold-400 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-royal-900 mb-2">Women's Meeting</h3>
+                    <p class="text-gold-600 font-bold mb-4 uppercase text-sm tracking-wide">Every Friday</p>
+                    <p class="text-gray-600">Deep dive into the scriptures to grow in knowledge and spiritual maturity.</p>
+                    <div class="mt-6 pt-6 border-t border-gray-100">
+                        <p class="text-xl font-bold text-royal-800">11:00 AM</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-xl hover:border-gold-300 transition duration-300 text-center reveal delay-300">
+                    <div class="w-16 h-16 bg-royal-900 text-gold-400 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-royal-900 mb-2">Sunday School</h3>
+                    <p class="text-gold-600 font-bold mb-4 uppercase text-sm tracking-wide">For Kids</p>
+                    <p class="text-gray-600">Fun-filled biblical teaching, songs, and activities to build a strong foundation for children.</p>
+                    <div class="mt-6 pt-6 border-t border-gray-100">
+                        <p class="text-xl font-bold text-royal-800">10:00 AM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 md:py-20 bg-royal-50 border-t border-gray-200">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div>
@@ -641,19 +800,30 @@
                     <p class="text-gray-600 mb-8">We would love to hear from you. Send us a prayer request or reach out for directions.</p>
                     
                     <div class="space-y-6">
-                        <div class="flex items-center p-4 bg-white rounded-lg shadow-sm">
-                            <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xl mr-4">
+                        <div class="flex items-center p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+                            <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xl mr-4 shrink-0">
                                 <i class="fab fa-whatsapp"></i>
                             </div>
                             <div>
-                                <p class="text-sm text-gray-500 uppercase font-bold">WhatsApp / Call</p>
-                                <a href="https://wa.me/919908756733" class="text-lg font-bold text-royal-900 hover:text-green-600 block">9908756733</a>
-                                <a href="https://wa.me/917659997772" class="text-lg font-bold text-royal-900 hover:text-green-600 block">7659997772</a>
+                                <p class="text-xs text-gray-500 uppercase font-bold tracking-wider">WhatsApp / Call</p>
+                                <a href="https://wa.me/919908756733" class="text-lg font-bold text-royal-900 hover:text-green-600 block transition">9908756733</a>
+                                <a href="https://wa.me/917659997772" class="text-lg font-bold text-royal-900 hover:text-green-600 block transition">7659997772</a>
                             </div>
                         </div>
-
                         
-                <div class="h-full min-h-[400px] bg-gray-200 rounded-xl overflow-hidden shadow-lg relative">
+                        <div class="flex items-center p-4 bg-white rounded-lg shadow-sm border border-gray-100">
+                             <div class="w-12 h-12 bg-royal-100 text-royal-600 rounded-full flex items-center justify-center text-xl mr-4 shrink-0">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase font-bold tracking-wider">Location</p>
+                                <p class="text-lg font-bold text-royal-900">Kothagudem, Telangana</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="h-[300px] md:h-full min-h-[300px] bg-gray-200 rounded-xl overflow-hidden shadow-lg relative">
                     <iframe 
                         src="https://maps.google.com/maps?width=600&height=400&hl=en&q=zion%20church%2Claxmidevipally&t=&z=14&ie=UTF8&iwloc=B&output=embed" 
                         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
@@ -661,7 +831,7 @@
                     <div class="absolute bottom-4 left-4 right-4 bg-white p-4 rounded shadow-lg">
                         <h4 class="font-bold text-royal-900">Zion Ministries</h4>
                         <p class="text-sm text-gray-500">Kothagudem, Telangana</p>
-                        <a href="https://maps.google.com" target="_blank" class="mt-2 block text-center bg-royal-900 text-white text-sm py-2 rounded">Get Directions</a>
+                        <a href="https://maps.google.com" target="_blank" class="mt-2 block text-center bg-royal-900 text-white text-sm py-2 rounded hover:bg-royal-800 transition">Get Directions</a>
                     </div>
                 </div>
             </div>
@@ -730,11 +900,11 @@
     </footer>
     
     <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden flex justify-center items-center opacity-0 pointer-events-none transition-opacity duration-300">
-        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-4xl hover:text-gold-500 transition focus:outline-none">
+        <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white text-4xl hover:text-gold-500 transition focus:outline-none">
             <i class="fas fa-times"></i>
         </button>
-        <div class="max-w-[90vw] max-h-[90vh]">
-            <img id="lightbox-img" src="" alt="Full View" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl border-2 border-white/20">
+        <div class="max-w-[95vw] max-h-[95vh] p-2">
+            <img id="lightbox-img" src="" alt="Full View" class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl border-2 border-white/20">
             <p class="text-center text-gray-400 mt-4 text-sm tracking-widest uppercase">Click outside image to close</p>
         </div>
     </div>
@@ -745,11 +915,11 @@
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('bg-royal-900', 'shadow-lg');
-                navbar.classList.remove('bg-transparent', 'py-4');
-                navbar.classList.add('py-2');
+                navbar.classList.remove('bg-transparent', 'py-4', 'border-transparent');
+                navbar.classList.add('py-2', 'border-royal-800');
             } else {
-                navbar.classList.remove('bg-royal-900', 'shadow-lg', 'py-2');
-                navbar.classList.add('bg-transparent', 'py-4');
+                navbar.classList.remove('bg-royal-900', 'shadow-lg', 'py-2', 'border-royal-800');
+                navbar.classList.add('bg-transparent', 'py-4', 'border-transparent');
             }
         });
 
@@ -771,7 +941,7 @@
                 }
             });
         };
-        const revealObserver = new IntersectionObserver(revealCallback, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+        const revealObserver = new IntersectionObserver(revealCallback, { threshold: 0.1, rootMargin: "0px" });
         revealElements.forEach(el => revealObserver.observe(el));
 
         // ----------------------------------------
@@ -813,7 +983,7 @@
         });
 
         // ----------------------------------------
-        // SONG MANAGEMENT LOGIC (READ ONLY)
+        // SONG MANAGEMENT LOGIC
         // ----------------------------------------
         function toggleLyrics(id) {
             const content = document.getElementById(id);
