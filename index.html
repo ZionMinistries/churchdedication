@@ -87,6 +87,15 @@
             line-height: 2;
             white-space: pre-line;
         }
+        
+        /* Testimony Card Hover Effect */
+        .testimony-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .testimony-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body class="font-body text-gray-800 bg-white">
@@ -100,13 +109,12 @@
                 </a>
             </div>
             
-            <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-4 lg:space-x-6 items-center">
                 <a href="#pastor" class="text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide">Pastor</a>
                 <a href="#speakers" class="text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide">Speakers</a>
                 <a href="#construction" class="text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide">Journey</a>
-                <a href="#program" class="text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide">Program</a>
                 <a href="#lyrics" class="text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide">Songs</a>
+                <a href="#testimonies" class="text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide">Testimonies</a>
                 <a href="#services" class="text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide">Services</a>
                 
                 <a href="#live" class="text-red-400 hover:text-red-300 font-bold transition text-xs lg:text-sm uppercase tracking-wide flex items-center gap-2">
@@ -123,13 +131,12 @@
             </button>
         </div>
 
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-royal-900 border-t border-royal-800 p-6 flex-col space-y-4 shadow-xl text-center max-h-[80vh] overflow-y-auto">
             <a href="#pastor" class="text-white hover:text-gold-400 block py-2">Our Pastor</a>
             <a href="#speakers" class="text-white hover:text-gold-400 block py-2">Guest Speakers</a>
             <a href="#construction" class="text-white hover:text-gold-400 block py-2">Construction Journey</a>
-            <a href="#program" class="text-white hover:text-gold-400 block py-2">Program Schedule</a>
             <a href="#lyrics" class="text-white hover:text-gold-400 block py-2">Worship Songs</a>
+            <a href="#testimonies" class="text-white hover:text-gold-400 block py-2">Testimonies</a>
             <a href="#services" class="text-white hover:text-gold-400 block py-2">Weekly Services</a>
             <a href="#live" class="text-red-400 font-bold block py-2">Watch Live</a>
             <a href="#contact" class="inline-block px-6 py-2 bg-gold-500 text-royal-900 font-bold rounded-full mt-2">Contact Us</a>
@@ -169,10 +176,7 @@
                 <a href="#live" class="w-full sm:w-auto px-8 py-3 bg-red-600 text-white font-bold rounded uppercase tracking-widest hover:bg-red-700 transition duration-300 shadow-lg shadow-red-600/30 flex items-center justify-center gap-2">
                     <i class="fas fa-play"></i> Watch Live
                 </a>
-                <a href="#program" class="w-full sm:w-auto px-8 py-3 bg-white text-royal-900 font-bold rounded uppercase tracking-widest hover:bg-gray-100 transition duration-300">
-                    Schedule
-                </a>
-            </div>
+                </div>
         </div>
 
         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
@@ -225,8 +229,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
                 <div class="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition duration-500 reveal">
                     <div class="flex flex-col md:flex-row h-full">
-                        <div class="md:w-2/5 h-64 md:h-auto">
-                            <img src="zz/Layer 16.jpg" alt="Apostle Steeven Garu" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="md:w-2/5 h-96 md:h-auto">
+                            <img src="zz/Layer 16.jpg" alt="Apostle Steeven Garu" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-110">
                         </div>
                         <div class="p-6 md:p-8 md:w-3/5 flex flex-col justify-center text-left">
                             <h3 class="text-xl md:text-2xl font-serif font-bold text-white mb-1">Apostle Steeven Garu</h3>
@@ -239,8 +243,8 @@
 
                 <div class="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition duration-500 reveal delay-100">
                     <div class="flex flex-col md:flex-row h-full">
-                         <div class="md:w-2/5 h-64 md:h-auto">
-                            <img src="zz/YESUPADHAM.jpg" alt="Rev Yesupadam Garu" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                         <div class="md:w-2/5 h-96 md:h-auto">
+                            <img src="zz/YESUPADHAM.jpg" alt="Rev Yesupadam Garu" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-110">
                         </div>
                         <div class="p-6 md:p-8 md:w-3/5 flex flex-col justify-center text-left">
                             <h3 class="text-xl md:text-2xl font-serif font-bold text-white mb-1">Rev Yesupadam Garu</h3>
@@ -264,15 +268,12 @@
             <div class="relative max-w-6xl mx-auto">
                 <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-gold-300"></div>
 
-                <!-- Item 1 -->
                 <div class="relative flex flex-col md:flex-row items-center justify-between md:flex-row-reverse mb-12 md:mb-16 reveal">
                     <div class="hidden md:block w-5/12 text-left pl-12">
                         <h3 class="text-3xl font-serif text-royal-900">Demolition & Site Prep</h3>
                         <p class="text-gray-600 mt-2 text-lg">Clearing the old to make way for the new glory.</p>
                     </div>
-                    <!-- Dot -->
                     <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-royal-900 border-4 border-gold-400 rounded-full z-10 translate-y-2 md:translate-y-0"></div>
-                    <!-- Content -->
                     <div class="pl-12 md:pr-12 md:pl-0 w-full md:w-5/12 mt-2 md:mt-0">
                          <div class="bg-white p-4 rounded-xl shadow-xl group hover:shadow-2xl transition duration-300">
                             <div class="grid grid-cols-2 gap-3">
@@ -288,7 +289,6 @@
                     </div>
                 </div>
 
-                <!-- Item 2 -->
                 <div class="relative flex flex-col md:flex-row items-center justify-between md:justify-normal mb-12 md:mb-16 reveal">
                     <div class="hidden md:block w-5/12 text-right pr-12">
                         <h3 class="text-3xl font-serif text-royal-900">Foundation</h3>
@@ -310,7 +310,6 @@
                     </div>
                 </div>
 
-                <!-- Item 3 -->
                 <div class="relative flex flex-col md:flex-row items-center justify-between md:flex-row-reverse mb-12 md:mb-16 reveal">
                     <div class="hidden md:block w-5/12 text-left pl-12">
                         <h3 class="text-3xl font-serif text-royal-900">Pillars & Structure</h3>
@@ -331,7 +330,6 @@
                     </div>
                 </div>
 
-                <!-- Item 4 -->
                 <div class="relative flex flex-col md:flex-row items-center justify-between md:justify-normal mb-12 md:mb-16 reveal">
                     <div class="hidden md:block w-5/12 text-right pr-12">
                         <h3 class="text-3xl font-serif text-royal-900">Roofing & Interior</h3>
@@ -353,7 +351,6 @@
                     </div>
                 </div>
 
-                <!-- Item 5 -->
                 <div class="relative flex flex-col md:flex-row items-center justify-between md:flex-row-reverse mb-12 md:mb-16 reveal">
                     <div class="hidden md:block w-5/12 text-left pl-12">
                         <h3 class="text-3xl font-serif text-royal-900">Final Completed Church</h3>
@@ -374,65 +371,6 @@
                     </div>
                 </div>
 
-            </div>
-        </div>
-    </section>
-
-    <section id="program" class="py-16 md:py-20 bg-royal-950 text-white relative">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-gold-500 opacity-5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
-        <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500 opacity-10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
-
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-12 reveal">
-                <span class="text-gold-400 uppercase tracking-widest text-sm font-bold">11 December 2025</span>
-                <h2 class="text-3xl md:text-4xl font-serif mt-2">Opening Day Program</h2>
-            </div>
-
-            <div class="max-w-3xl mx-auto space-y-6">
-                <!-- Program Items... (Same content as before) -->
-                <div class="bg-white/5 border border-white/10 p-6 rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6 hover:bg-white/10 transition reveal">
-                    <div class="flex-shrink-0 w-20 h-20 bg-royal-800 rounded-full flex items-center justify-center border-2 border-gold-500 text-gold-400 text-center flex-col leading-tight">
-                        <span class="text-sm font-bold">9:00</span>
-                        <span class="text-xs">AM</span>
-                    </div>
-                    <div class="flex-grow text-center md:text-left">
-                        <h3 class="text-xl font-bold text-white">Prayer & Opening Worship</h3>
-                        <p class="text-gray-400 mt-1">Inviting the Holy Spirit into the new sanctuary with powerful praise.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white/5 border border-white/10 p-6 rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6 hover:bg-white/10 transition reveal delay-100">
-                    <div class="flex-shrink-0 w-20 h-20 bg-royal-800 rounded-full flex items-center justify-center border-2 border-gold-500 text-gold-400 text-center flex-col leading-tight">
-                        <span class="text-sm font-bold">10:00</span>
-                        <span class="text-xs">AM</span>
-                    </div>
-                    <div class="flex-grow text-center md:text-left">
-                        <h3 class="text-xl font-bold text-white">Word by Guest Preachers</h3>
-                        <p class="text-gray-400 mt-1">Powerful messages from Apostle Steeven Garu & Rev Yesupadam Garu.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white/5 border border-white/10 p-6 rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6 hover:bg-white/10 transition reveal delay-200">
-                    <div class="flex-shrink-0 w-20 h-20 bg-royal-800 rounded-full flex items-center justify-center border-2 border-gold-500 text-gold-400 text-center flex-col leading-tight">
-                        <span class="text-sm font-bold">11:30</span>
-                        <span class="text-xs">AM</span>
-                    </div>
-                    <div class="flex-grow text-center md:text-left">
-                        <h3 class="text-xl font-bold text-white">Church Dedication Prayer</h3>
-                        <p class="text-gray-400 mt-1">Official dedication ceremony of the temple to the Lord.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white/5 border border-white/10 p-6 rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6 hover:bg-white/10 transition reveal delay-300">
-                    <div class="flex-shrink-0 w-20 h-20 bg-royal-800 rounded-full flex items-center justify-center border-2 border-gold-500 text-gold-400 text-center flex-col leading-tight">
-                        <span class="text-sm font-bold">12:30</span>
-                        <span class="text-xs">PM</span>
-                    </div>
-                    <div class="flex-grow text-center md:text-left">
-                        <h3 class="text-xl font-bold text-white">Thanksgiving & Blessing</h3>
-                        <p class="text-gray-400 mt-1">Community feast and final benediction.</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -467,7 +405,6 @@
 
             <div id="song-list" class="space-y-4">
                 
-                <!-- Telugu Songs Added Here -->
                 <div class="bg-royal-950 border border-gray-700 rounded-lg overflow-hidden song-item">
                     <div class="flex items-stretch">
                         <button onclick="toggleLyrics('song_tel_1')" class="flex-grow px-4 md:px-6 py-4 flex justify-between items-center bg-royal-900 hover:bg-royal-800 transition focus:outline-none text-left">
@@ -690,6 +627,171 @@
                     </div>
                 </div>
 
+                <!-- Song 8 -->
+                <div class="bg-royal-950 border border-gray-700 rounded-lg overflow-hidden song-item">
+                    <div class="flex items-stretch">
+                        <button onclick="toggleLyrics('song_tel_8')" class="flex-grow px-4 md:px-6 py-4 flex justify-between items-center bg-royal-900 hover:bg-royal-800 transition focus:outline-none text-left">
+                            <div class="flex items-center gap-4">
+                                <span class="song-number w-8 h-8 rounded-full bg-gold-500 text-royal-900 flex items-center justify-center font-bold text-sm shrink-0">8</span>
+                                <span class="text-lg md:text-xl font-bold text-white font-telugu">యావేహ్ రాఫా</span>
+                            </div>
+                            <i id="icon-song_tel_8" class="fas fa-plus text-gold-400 transition-transform duration-300"></i>
+                        </button>
+                    </div>
+                    <div id="song_tel_8" class="hidden px-6 md:px-8 py-6 text-gray-300 lyrics-text border-t border-gray-700 bg-black/20 font-telugu text-lg">
+                        <p class="font-bold text-gold-500 mb-2">[Pallavi]</p>
+                        యావేహ్ ... రాఫా... ఎలోహిం... షడ్డాయ్...
+                        యావే.. రాఫా.. ఎలోహిం.. షెడ్డై..
+                        యీరె ...అడోనాయ్.... కనుపరచుము
+                        యిరే అదూనై కనుపరచుము
+
+                        <p class="font-bold text-gold-500 mb-2 mt-4">[Charanam 1]</p>
+                        నీ మహిమే ఈ స్థలములో అనుభవిస్తున్నా
+                        నీ మహిమే ఈ స్థలములో అనుభవిస్తున్నా
+                        నీవు గొప్ప కార్యాలుచేస్తున్నావ్
+                        నువ్వు గొప్ప కార్యాలుచేస్తున్నావ్
+                        పురికొల్పు నా విశ్వాసం(4) ||యావే:||
+                        పురికొల్పు నా విశ్వాసం (4) ||యెహోవా||
+
+                        <p class="font-bold text-gold-500 mb-2 mt-4">[Charanam 2]</p>
+                        ఆరాధనలో దర్శించును...
+                        ఆరాధనలో దర్శించును
+                        వెతుకుచున్నచో కనపరచును...
+                        వెతుకుచునాచో కనబరచును
+                        తట్టుచుండగ నీకు తెరచును(4) ||యావే:||
+                        తట్టుచుండగ నీకు తెరచును (4) ||యెహోవా||
+
+                        <p class="font-bold text-gold-500 mb-2 mt-4">[Ending]</p>
+                        యేసువా... యేసువా...
+                        యేషు వా..ఆ...ఆ....ఆ....ఆ... (4)
+                        యేసు.. ఊ.. వా... ఆఆ...ఆఆ...ఆఆ (4)
+
+                        నా ప్రాణ ప్రియుడు - అతి సుందరుడు
+                        నా ప్రాణ ప్రియుడు - అతి సుందరుడు
+                        వేవేలలో పది వేళ్లల్లో
+                    </div>
+                </div>
+
+                <!-- Song 9 -->
+                <div class="bg-royal-950 border border-gray-700 rounded-lg overflow-hidden song-item">
+                    <div class="flex items-stretch">
+                        <button onclick="toggleLyrics('song_tel_9')" class="flex-grow px-4 md:px-6 py-4 flex justify-between items-center bg-royal-900 hover:bg-royal-800 transition focus:outline-none text-left">
+                            <div class="flex items-center gap-4">
+                                <span class="song-number w-8 h-8 rounded-full bg-gold-500 text-royal-900 flex items-center justify-center font-bold text-sm shrink-0">9</span>
+                                <span class="text-lg md:text-xl font-bold text-white font-telugu">నీదు ప్రసన్నత</span>
+                            </div>
+                            <i id="icon-song_tel_9" class="fas fa-plus text-gold-400 transition-transform duration-300"></i>
+                        </button>
+                    </div>
+                    <div id="song_tel_9" class="hidden px-6 md:px-8 py-6 text-gray-300 lyrics-text border-t border-gray-700 bg-black/20 font-telugu text-lg">
+                        నీవు లేనిదే ఒక అడుగును వేయలేను
+                        నీవు లేనిదే అసలు ఉండలేనయ్యా
+
+                        నీదు ప్రసన్నత నీదు ప్రసన్నత
+                        నాకు కావాలయ్యా ఎల్లప్పుడు
+
+                        నీదు ప్రసన్నత నీదు ప్రసన్నత
+                        నాకు కావాలయ్యా అనునిత్యము
+
+                        పర్వతములు మైనములా
+                        నీ సన్నిధిలో కరిగిపోవును
+
+                        నీదు ప్రసన్నత నీదు ప్రసన్నత
+                        నాకు కావాలయ్యా ఎల్లప్పుడు
+
+                        నీదు ప్రసన్నత నీదు ప్రసన్నత
+                        నాకు కావాలయ్యా అనునిత్యము
+
+                        <p class="font-bold text-gold-500 mb-2 mt-4">[Spontaneous]</p>
+                        నీ ప్రసన్నత కావాలయ్యా
+                        మా గృహములలో మా సంఘములలో మా జీవితాలలో
+                        నీ ప్రసన్నత నింపుమయ
+                        నీ సన్నిధిలో బంధకములు ఊడిపోవును
+                        రోగములు పారిపోవును
+                        యేసయ్యా నీ సన్నిధి చాలయ్యా
+                        నీవు చాలయ్యా
+
+                        <p class="font-bold text-gold-500 mb-2 mt-4">[Bridge]</p>
+                        నీదు పరిశుద్ధమైన ప్రసన్నత
+                        నీదు పరిశుద్ధమైన ప్రసన్నత
+                        నాకు కావాలయ్యా ఎల్లప్పుడు
+                        నాకు కావాలయ్యా అనునిత్యము
+                    </div>
+                </div>
+
+                <!-- Song 10 -->
+                <div class="bg-royal-950 border border-gray-700 rounded-lg overflow-hidden song-item">
+                    <div class="flex items-stretch">
+                        <button onclick="toggleLyrics('song_tel_10')" class="flex-grow px-4 md:px-6 py-4 flex justify-between items-center bg-royal-900 hover:bg-royal-800 transition focus:outline-none text-left">
+                            <div class="flex items-center gap-4">
+                                <span class="song-number w-8 h-8 rounded-full bg-gold-500 text-royal-900 flex items-center justify-center font-bold text-sm shrink-0">10</span>
+                                <span class="text-lg md:text-xl font-bold text-white font-telugu">రాజా నీ భవనములో</span>
+                            </div>
+                            <i id="icon-song_tel_10" class="fas fa-plus text-gold-400 transition-transform duration-300"></i>
+                        </button>
+                    </div>
+                    <div id="song_tel_10" class="hidden px-6 md:px-8 py-6 text-gray-300 lyrics-text border-t border-gray-700 bg-black/20 font-telugu text-lg">
+                        <p class="font-bold text-gold-500 mb-2">[Pallavi]</p>
+                        (యేసు) రాజా నీ భవనములో
+                        రేయి పగలు వేచియుందును (2)
+                        (నిన్ను) స్తుతించి ఆనందింతును
+                        చింతలు మరచెదను (2) ||రాజా||
+
+                        <p class="font-bold text-gold-500 mb-2 mt-4">[Charanam 1]</p>
+                        నా బలమా నా కోట
+                        ఆరాధన నీకే (2)
+                        నా దుర్గమా ఆశ్రయమా
+                        ఆరాధన నీకే (2)
+                        ఆరాధనా ఆరాధనా
+                        అబ్బ తండ్రి నీకేనయ్యా ||రాజా||
+
+                        <p class="font-bold text-gold-500 mb-2 mt-4">[Charanam 2]</p>
+                        అంతట నివసించు యెహోవా ఎలోహిం
+                        ఆరాధన నీకే (2)
+                        మా యొక్క నీతి యెహోవా సిద్కేను
+                        ఆరాధన నీకే (2)
+                        ఆరాధనా ఆరాధనా
+                        అబ్బ తండ్రి నీకేనయ్యా ||రాజా||
+
+                        <p class="font-bold text-gold-500 mb-2 mt-4">[Charanam 3]</p>
+                        పరిశుద్ధ పరచు యెహోవా మెక్కాదిస్
+                        ఆరాధన నీకే (2)
+                        రూపించు దైవం యెహోవా హోషేను
+                        ఆరాధన నీకే (2)
+                        ఆరాధనా ఆరాధనా
+                        అబ్బ తండ్రి నీకేనయ్యా ||రాజా||
+                    </div>
+                </div>
+
+                <!-- Song 11 -->
+                <div class="bg-royal-950 border border-gray-700 rounded-lg overflow-hidden song-item">
+                    <div class="flex items-stretch">
+                        <button onclick="toggleLyrics('song_tel_11')" class="flex-grow px-4 md:px-6 py-4 flex justify-between items-center bg-royal-900 hover:bg-royal-800 transition focus:outline-none text-left">
+                            <div class="flex items-center gap-4">
+                                <span class="song-number w-8 h-8 rounded-full bg-gold-500 text-royal-900 flex items-center justify-center font-bold text-sm shrink-0">11</span>
+                                <span class="text-lg md:text-xl font-bold text-white font-telugu">నీ సన్నిధిలో సంతోషము</span>
+                            </div>
+                            <i id="icon-song_tel_11" class="fas fa-plus text-gold-400 transition-transform duration-300"></i>
+                        </button>
+                    </div>
+                    <div id="song_tel_11" class="hidden px-6 md:px-8 py-6 text-gray-300 lyrics-text border-t border-gray-700 bg-black/20 font-telugu text-lg">
+                        నీ సన్నిధిలో సంతోషము
+                        నీ సన్నిధిలో సమాధానము (2)
+                        నలిగియున్న వారిని బలపరచును
+                        చెరలో ఉన్న వారికి స్వాతంత్ర్యము
+                        యేసయ్యా యేసయ్యా.. (3) ||నీ సన్నిధిలో||
+
+                        నీలోనే నేనుంటాను – నీలోనే జీవిస్తాను
+                        విడువను ఎడబాయను – మరువక ప్రేమిస్తాను (2) ||యేసయ్యా||
+
+                        నాలో నీవు – నీలో నేను
+                        నా కొరకే నీవు – నీ కొరకే నేను (2)
+
+                        ఇక భయమే లేదు – దిగులే లేదు
+                        నీ సన్నిధిలో నేనుంటే చాలు (2)
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -697,41 +799,182 @@
     <section id="testimonies" class="py-16 md:py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12 md:mb-16 reveal">
-                <h2 class="text-3xl md:text-4xl font-serif text-royal-900">Testimonies Wall</h2>
-                <div class="flex flex-wrap justify-center gap-2 mt-6">
-                </div>
+                <span class="text-gold-600 uppercase tracking-widest text-sm font-bold">What God Has Done</span>
+                <h2 class="text-3xl md:text-4xl font-serif text-royal-900 mt-2">Testimonies</h2>
+                <div class="w-24 h-1 bg-gold-500 mx-auto mt-4"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="p-8 bg-gray-50 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition reveal">
-                    <div class="flex items-center mb-4 text-gold-500">
-                       
+                
+                <!-- Testimony 1 -->
+                <div class="testimony-card p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm reveal h-full flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center mb-4 text-gold-500">
+                            <i class="fas fa-quote-left text-2xl"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-6 font-telugu text-lg leading-relaxed">
+                            "దైవ సేవకుల ప్రార్థన ద్వారా దేవుడు నాకు గర్భఫలాన్ని అనుగ్రహించి కుమార్తెను ఇచ్చారు. ఈ పరిచర్య ద్వారా ఆత్మీయంగా దేవునిలో ఎదగడానికి దేవుడు సహాయం చేశారు."
+                        </p>
                     </div>
-                    <p class="text-gray-600 italic mb-6">"God healed my family during the prayer meetings. Zion Ministries has been a true blessing to Kothagudem."</p>
-                    <div class="font-bold text-royal-900">- Sister Mary</div>
-                    <span class="text-xs text-gray-400 uppercase">Healing Testimony</span>
-                </div>
-                <div class="p-8 bg-gray-50 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition reveal delay-100">
-                      <div class="flex items-center mb-4 text-gold-500">
-                        
+                    <div>
+                        <div class="font-bold text-royal-900 font-telugu text-lg">- కళ ప్రభాకర్</div>
                     </div>
-                    <p class="text-gray-600 italic mb-6">"I found peace and salvation in this church. The teaching of the Word is powerful."</p>
-                    <div class="font-bold text-royal-900">- Brother John</div>
-                    <span class="text-xs text-gray-400 uppercase">Salvation Testimony</span>
                 </div>
-                <div class="p-8 bg-gray-50 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition reveal delay-200">
-                      <div class="flex items-center mb-4 text-gold-500">
-                        
+
+                <!-- Testimony 2 -->
+                <div class="testimony-card p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm reveal delay-100 h-full flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center mb-4 text-gold-500">
+                            <i class="fas fa-quote-left text-2xl"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-6 font-telugu text-lg leading-relaxed">
+                            "మా సొంత గృహం నిర్మించుకోవడానికి దేవుడు మార్గాన్ని చూపించారు. ఈ పరిచర్య ద్వారా మా కుటుంబమంతా రక్షణ పొంది, ఆత్మీయంగా బలపడడానికి దేవుడు కృప చూపించారు."
+                        </p>
                     </div>
-                    <p class="text-gray-600 italic mb-6">"Waiting for this grand opening! It's a miracle how fast the construction completed."</p>
-                    <div class="font-bold text-royal-900">- Sarah K.</div>
-                    <span class="text-xs text-gray-400 uppercase">Thanksgiving</span>
+                    <div>
+                        <div class="font-bold text-royal-900 font-telugu text-lg">- రాధమ్మ కృష్ణమూర్తి</div>
+                    </div>
                 </div>
+
+                <!-- Testimony 3 -->
+                <div class="testimony-card p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm reveal delay-200 h-full flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center mb-4 text-gold-500">
+                            <i class="fas fa-quote-left text-2xl"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-6 font-telugu text-lg leading-relaxed">
+                            "2025లో నా కుమార్తె రక్షించబడింది. పిల్లలకు 10వ తరగతిలో మంచి ఫలితాలు వచ్చాయి. ఆర్థిక సమస్యల నుండి విడుదల లభించింది. గత మూడేళ్లలో నా భర్తను ప్రమాదాల నుండి కాపాడి సజీవంగా నిలబెట్టిన దేవునికి కృతజ్ఞతలు."
+                        </p>
+                    </div>
+                    <div>
+                        <div class="font-bold text-royal-900 font-telugu text-lg">- పుష్ప వెంకట</div>
+                    </div>
+                </div>
+
+                <!-- Testimony 4 -->
+                <div class="testimony-card p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm reveal h-full flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center mb-4 text-gold-500">
+                            <i class="fas fa-quote-left text-2xl"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-6 font-telugu text-lg leading-relaxed">
+                            "నా భర్త మరణ పడకలో ఉన్నప్పుడు సీయోను మందిరానికి వచ్చాము. దైవ సేవకుల ప్రార్థన ద్వారా నా భర్త బ్రతికారు. మా కుటుంబం అంతా రక్షించబడింది మరియు సొంత గృహం నిర్మించుకునే కృప దేవుడు ఇచ్చారు."
+                        </p>
+                    </div>
+                    <div>
+                        <div class="font-bold text-royal-900 font-telugu text-lg">- ఉపేంద్ర బాబూరావు</div>
+                    </div>
+                </div>
+
+                <!-- Testimony 5 -->
+                <div class="testimony-card p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm reveal delay-100 h-full flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center mb-4 text-gold-500">
+                            <i class="fas fa-quote-left text-2xl"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-6 font-telugu text-lg leading-relaxed">
+                            "గత నాలుగేళ్లలో నా ముగ్గురు కుమార్తెల విషయంలో దేవుడు గొప్ప కార్యాలు చేశారు. మా కుటుంబమే కాకుండా, మా బంధువులలో 15 మంది ఈ పరిచర్య ద్వారా బలపడి రక్షించబడ్డారు."
+                        </p>
+                    </div>
+                    <div>
+                        <div class="font-bold text-royal-900 font-telugu text-lg">- రూతామ్మ సుబ్బారావు</div>
+                    </div>
+                </div>
+
+                <!-- Testimony 6 -->
+                <div class="testimony-card p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm reveal delay-200 h-full flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center mb-4 text-gold-500">
+                            <i class="fas fa-quote-left text-2xl"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-6 font-telugu text-lg leading-relaxed">
+                            "కొత్తగూడెం వచ్చాక సీయోను మందిరానికి నడిపించబడ్డాము. మా కుటుంబం రక్షించబడి ఆత్మీయంగా ఎదుగుతున్నాము. నా భర్తకు RTCలో ఉద్యోగం రావడానికి దేవుడు కృప చూపించారు."
+                        </p>
+                    </div>
+                    <div>
+                        <div class="font-bold text-royal-900 font-telugu text-lg">- నర్మద గిరి</div>
+                    </div>
+                </div>
+
+                <!-- Testimony 7 -->
+                <div class="testimony-card p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm reveal h-full flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center mb-4 text-gold-500">
+                            <i class="fas fa-quote-left text-2xl"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-6 font-telugu text-lg leading-relaxed">
+                            "ఈ పరిచర్య ద్వారా మా కుటుంబం రక్షించబడింది. మందిర నిర్మాణం ఆరంభం నుండి సేవలో ఉన్నాము. నా కుమారుడు అఖిల్ అనారోగ్యంతో ఉన్నప్పుడు దేవుడు అద్భుతంగా స్వస్థపరిచారు."
+                        </p>
+                    </div>
+                    <div>
+                        <div class="font-bold text-royal-900 font-telugu text-lg">- మల్లీశ్వరీ సుదర్శన్</div>
+                    </div>
+                </div>
+
+                <!-- Testimony 8 -->
+                <div class="testimony-card p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm reveal delay-100 h-full flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center mb-4 text-gold-500">
+                            <i class="fas fa-quote-left text-2xl"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-6 font-telugu text-lg leading-relaxed">
+                            "ఘోర రోడ్డు ప్రమాదం నుండి దేవుడు నన్ను కాపాడారు. ఎన్నో ఏళ్లుగా ఉద్యోగం కోసం ప్రయత్నిస్తుండగా, దేవుని కృపను బట్టి 2025లో సింగరేణిలో ఉద్యోగం వచ్చింది."
+                        </p>
+                    </div>
+                    <div>
+                        <div class="font-bold text-royal-900 font-telugu text-lg">- మల్లికార్జున్</div>
+                    </div>
+                </div>
+
+                <!-- Testimony 9 -->
+                <div class="testimony-card p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm reveal delay-200 h-full flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center mb-4 text-gold-500">
+                            <i class="fas fa-quote-left text-2xl"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-6 font-telugu text-lg leading-relaxed">
+                            "వివాహమై 9 సంవత్సరాలైనా సంతానం లేక బాధపడుతుండగా, సేవకులు మరియు సంఘ ప్రార్థన ద్వారా దేవుడు మా గర్భాన్ని తెరిచారు. గత సంవత్సరం డిసెంబర్ 31న మాకు బిడ్డను అనుగ్రహించారు."
+                        </p>
+                    </div>
+                    <div>
+                        <div class="font-bold text-royal-900 font-telugu text-lg">- జాన్సన్</div>
+                    </div>
+                </div>
+
+                <!-- Testimony 10 -->
+                <div class="testimony-card p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm reveal h-full flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center mb-4 text-gold-500">
+                            <i class="fas fa-quote-left text-2xl"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-6 font-telugu text-lg leading-relaxed">
+                            "2025 లో భయంకరమైన రోడ్డు ప్రమాదము నుండి దేవుడు నన్ను కాపాడాడు. మరణ పడకల మీద ఉన్న నన్ను దేవుడు అద్భుతంగా స్వస్థపరచాడు. దైవజనులు మరియు సంఘము యొక్క ప్రార్ధనలు నాకు ఎంతో ధైర్యాన్ని ఇచ్చాయి. దేవునికే మహిమ కలుగును గాక."
+                        </p>
+                    </div>
+                    <div>
+                        <div class="font-bold text-royal-900 font-telugu text-lg">- హర్షిత్</div>
+                    </div>
+                </div>
+
+                <!-- Testimony 11 -->
+                <div class="testimony-card p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm reveal delay-100 h-full flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center mb-4 text-gold-500">
+                            <i class="fas fa-quote-left text-2xl"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-6 font-telugu text-lg leading-relaxed">
+                            "నా సంతానము విషయంలో ఆత్మీయ తల్లితండ్రుల పరిచర్య ప్రార్థన ద్వారా ఇద్దరూ (Boy and Girl) పిల్లలు కలిగారు. మరియు నూతన గృహం కట్టుకొనుటలో మందిర ప్రార్థన వలన సులభంగా కట్టుకొనుటకు దేవుడు సహాయం చేశాడు."
+                        </p>
+                    </div>
+                    <div>
+                        <div class="font-bold text-royal-900 font-telugu text-lg">- శాంతి రాజ్ కుమార్</div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Services moved here as requested -->
     <section id="services" class="py-16 md:py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12 md:mb-16 reveal">
@@ -877,7 +1120,6 @@
                 <div>
                     <h4 class="font-bold text-lg mb-6 text-gold-400">Follow Us</h4>
                     <div class="flex space-x-4">
-                        <!-- Social Media Links: REPLACE THESE PLACEHOLDERS WITH YOUR ACTUAL LINKS -->
                         <a href="https://www.facebook.com/share/1BfrtaDsrK/?mibextid=wwXIfr" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold-500 hover:text-royal-900 transition duration-300">
                             <i class="fab fa-facebook-f"></i>
                         </a>
