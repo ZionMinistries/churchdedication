@@ -61,17 +61,9 @@
             opacity: 1;
             transform: translateY(0);
         }
-        .gold-text-gradient {
-            background: linear-gradient(to right, #fcd34d, #d97706, #fcd34d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% auto;
-            animation: shine 4s linear infinite;
-        }
-        @keyframes shine { to { background-position: 200% center; } }
         
         .bg-hero-custom {
-            /* Using a local placeholder image from the zz folder */
+            /* Using a placeholder or the provided path - ensure image exists or use fallback */
             background-image: linear-gradient(to bottom, rgba(23, 37, 84, 0.85), rgba(23, 37, 84, 0.5)), url('zz/church_hero.jpeg');
             background-size: cover;
             background-position: center;
@@ -96,6 +88,16 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
         }
+        
+        /* Language Toggle Button Style */
+        .lang-btn {
+            border: 1px solid rgba(251, 191, 36, 0.5);
+            transition: all 0.3s ease;
+        }
+        .lang-btn:hover {
+            background-color: rgba(251, 191, 36, 0.1);
+            border-color: #fbbf24;
+        }
     </style>
 </head>
 <body class="font-body text-gray-800 bg-white">
@@ -110,36 +112,56 @@
             </div>
             
             <div class="hidden md:flex space-x-4 lg:space-x-6 items-center">
-                <a href="#pastor" class="text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide">Pastor</a>
-                <a href="#speakers" class="text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide">Speakers</a>
-                <a href="#construction" class="text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide">Journey</a>
-                <a href="#lyrics" class="text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide">Songs</a>
-                <a href="#testimonies" class="text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide">Testimonies</a>
-                <a href="#services" class="text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide">Services</a>
+                <!-- Navigation Links with Translation Attributes -->
+                <a href="#pastor" class="lang-text text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide" 
+                   data-en="Pastor" data-te="పాస్టర్">Pastor</a>
                 
-                <a href="#live" class="text-red-400 hover:text-red-300 font-bold transition text-xs lg:text-sm uppercase tracking-wide flex items-center gap-2">
-                    <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span> Live
+                <a href="#speakers" class="lang-text text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide" 
+                   data-en="Speakers" data-te="దైవజనులు">Speakers</a>
+                
+                <a href="#construction" class="lang-text text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide" 
+                   data-en="Journey" data-te="నిర్మాణ సాక్ష్యం">Journey</a>
+                
+                <a href="#lyrics" class="lang-text text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide" 
+                   data-en="Songs" data-te="సంకీర్తనలు">Songs</a>
+                
+                <a href="#testimonies" class="lang-text text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide" 
+                   data-en="Testimonies" data-te="సాక్ష్యములు">Testimonies</a>
+                
+                <a href="#services" class="lang-text text-white hover:text-gold-400 transition text-xs lg:text-sm uppercase tracking-wide" 
+                   data-en="Services" data-te="ఆరాధన క్రమము">Services</a>
+                
+                <a href="#live" class="lang-text text-red-400 hover:text-red-300 font-bold transition text-xs lg:text-sm uppercase tracking-wide flex items-center gap-2"
+                   data-en="Live" data-te="ప్రత్యక్ష ప్రసారము">
+                    <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span> <span class="content">Live</span>
                 </a>
                 
-                <a href="#contact" class="px-5 py-2 bg-gradient-to-r from-gold-500 to-gold-600 text-white font-bold rounded-full shadow-lg hover:shadow-gold-500/50 transition transform hover:-translate-y-0.5 text-xs lg:text-sm">
+                <a href="#contact" class="lang-text px-5 py-2 bg-gradient-to-r from-gold-500 to-gold-600 text-white font-bold rounded-full shadow-lg hover:shadow-gold-500/50 transition transform hover:-translate-y-0.5 text-xs lg:text-sm"
+                   data-en="Contact" data-te="సంప్రదించండి">
                     Contact
                 </a>
             </div>
 
-            <button id="mobile-menu-btn" class="md:hidden text-white text-2xl focus:outline-none p-2">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div class="flex items-center gap-4 md:hidden">
+                 <!-- Language Toggle Button (Mobile Nav) -->
+                 <button onclick="toggleLanguage()" class="lang-btn px-2 py-1 rounded text-gold-400 text-xs font-bold uppercase tracking-wider">
+                    A | ఆ
+                </button>
+                <button id="mobile-menu-btn" class="text-white text-2xl focus:outline-none p-2">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
 
         <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-royal-900 border-t border-royal-800 p-6 flex-col space-y-4 shadow-xl text-center max-h-[80vh] overflow-y-auto">
-            <a href="#pastor" class="text-white hover:text-gold-400 block py-2">Our Pastor</a>
-            <a href="#speakers" class="text-white hover:text-gold-400 block py-2">Guest Speakers</a>
-            <a href="#construction" class="text-white hover:text-gold-400 block py-2">Construction Journey</a>
-            <a href="#lyrics" class="text-white hover:text-gold-400 block py-2">Worship Songs</a>
-            <a href="#testimonies" class="text-white hover:text-gold-400 block py-2">Testimonies</a>
-            <a href="#services" class="text-white hover:text-gold-400 block py-2">Weekly Services</a>
-            <a href="#live" class="text-red-400 font-bold block py-2">Watch Live</a>
-            <a href="#contact" class="inline-block px-6 py-2 bg-gold-500 text-royal-900 font-bold rounded-full mt-2">Contact Us</a>
+            <a href="#pastor" class="lang-text text-white hover:text-gold-400 block py-2" data-en="Our Pastor" data-te="మా పాస్టర్ గారు">Our Pastor</a>
+            <a href="#speakers" class="lang-text text-white hover:text-gold-400 block py-2" data-en="Guest Speakers" data-te="అతిథి దైవజనులు">Guest Speakers</a>
+            <a href="#construction" class="lang-text text-white hover:text-gold-400 block py-2" data-en="Construction Journey" data-te="నిర్మాణ సాక్ష్యం">Construction Journey</a>
+            <a href="#lyrics" class="lang-text text-white hover:text-gold-400 block py-2" data-en="Worship Songs" data-te="ఆరాధన సంకీర్తనలు">Worship Songs</a>
+            <a href="#testimonies" class="lang-text text-white hover:text-gold-400 block py-2" data-en="Testimonies" data-te="సాక్ష్యములు">Testimonies</a>
+            <a href="#services" class="lang-text text-white hover:text-gold-400 block py-2" data-en="Weekly Services" data-te="వారపు ఆరాధన క్రమము">Weekly Services</a>
+            <a href="#live" class="lang-text text-red-400 font-bold block py-2" data-en="Watch Live" data-te="ప్రత్యక్షముగా వీక్షించండి">Watch Live</a>
+            <a href="#contact" class="lang-text inline-block px-6 py-2 bg-gold-500 text-royal-900 font-bold rounded-full mt-2" data-en="Contact Us" data-te="మమ్మల్ని సంప్రదించండి">Contact Us</a>
         </div>
     </nav>
 
@@ -151,7 +173,8 @@
             <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display text-white mb-4 leading-tight drop-shadow-2xl font-bold break-words">
                 ZION MINISTRIES
             </h1>
-            <h2 class="text-xl md:text-3xl font-serif text-white/90 mb-8 italic px-4">
+            <h2 class="lang-text text-xl md:text-3xl font-serif text-white/90 mb-8 italic px-4"
+                data-en="Grand Church Opening Celebration" data-te="నూతన ఆలయ ప్రతిష్ఠాపన మహోత్సవము">
                 Grand Church Opening Celebration
             </h2>
             
@@ -172,11 +195,26 @@
                 </div>
             </div>
 
-            <div class="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-md sm:max-w-none mx-auto px-4">
-                <a href="#live" class="w-full sm:w-auto px-8 py-3 bg-red-600 text-white font-bold rounded uppercase tracking-widest hover:bg-red-700 transition duration-300 shadow-lg shadow-red-600/30 flex items-center justify-center gap-2">
-                    <i class="fas fa-play"></i> Watch Live
+            <!-- Action Buttons Container -->
+            <div class="flex flex-col items-center gap-6 w-full max-w-md mx-auto">
+                
+                <!-- Watch Live Button -->
+                <a href="#live" class="lang-text w-full sm:w-auto px-8 py-3 bg-red-600 text-white font-bold rounded uppercase tracking-widest hover:bg-red-700 transition duration-300 shadow-lg shadow-red-600/30 flex items-center justify-center gap-2"
+                   data-en="Watch Live" 
+                   data-te="ప్రత్యక్షముగా వీక్షించండి">
+                   <i class="fas fa-play"></i> <span class="content">Watch Live</span>
                 </a>
-                </div>
+
+                <!-- Prominent Language Toggle in Hero -->
+                <button onclick="toggleLanguage()" class="group relative inline-flex items-center justify-center px-8 py-2 overflow-hidden font-bold text-white transition-all duration-300 bg-black/30 border-2 border-white/30 rounded-full hover:bg-gold-500 hover:text-royal-900 hover:border-gold-500 backdrop-blur-md cursor-pointer">
+                    <span class="mr-2 text-lg"><i class="fas fa-globe"></i></span>
+                    <span class="lang-text tracking-widest text-sm uppercase content"
+                          data-en="English | తెలుగు" 
+                          data-te="ఆంగ్లం | తెలుగు">
+                        English | తెలుగు
+                    </span>
+                </button>
+            </div>
         </div>
 
         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
@@ -191,26 +229,32 @@
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="w-full md:w-1/2 relative">
                     <div class="absolute inset-0 bg-gold-500 transform translate-x-3 translate-y-3 md:translate-x-4 md:translate-y-4 rounded-lg"></div>
-                    <img src="zz/pastor_vijay.jpeg" alt="Pastor Vijay Kumar" class="relative rounded-lg shadow-2xl w-full object-cover h-[400px] md:h-[500px]">
+                    <img src="zz/pastor_vijay.jpeg" onerror="this.src='https://placehold.co/600x800?text=Pastor+Vijay+Kumar'" alt="Pastor Vijay Kumar" class="relative rounded-lg shadow-2xl w-full object-cover h-[400px] md:h-[500px]">
                 </div>
                 
                 <div class="w-full md:w-1/2 text-center md:text-left">
-                    <span class="text-gold-600 font-bold tracking-widest uppercase text-sm mb-2 block">
+                    <span class="lang-text text-gold-600 font-bold tracking-widest uppercase text-sm mb-2 block"
+                          data-en="Host & Founder" data-te="స్థాపకులు & దైవజనులు">
                         Host & Founder
                     </span>
-                    <h2 class="text-3xl md:text-5xl font-serif text-royal-900 mb-6 font-bold">
+                    <h2 class="lang-text text-3xl md:text-5xl font-serif text-royal-900 mb-6 font-bold"
+                        data-en="Pastor Vijay Kumar" data-te="పాస్టర్ విజయ్ కుమార్ గారు">
                         Pastor Vijay Kumar
                     </h2>
                     <div class="w-24 h-1 bg-gold-500 mx-auto md:mx-0 mb-8"></div>
                     
                     <div class="bg-gray-50 p-6 rounded-l border-l-4 border-gold-500 mb-6">
                         <i class="fas fa-quote-left text-gold-400 text-2xl mb-2"></i>
-                        <p class="text-gray-700 italic text-lg">
+                        <p class="lang-text text-gray-700 italic text-lg"
+                           data-en="Welcome to Zion Ministries. This building is a testament to God's faithfulness. We believe this place will be a beacon of hope and revival for Kothagudem."
+                           data-te="సీయోను మినిస్ట్రీస్ కు స్వాగతం. ఈ భవనం దేవుని నమ్మకత్వానికి నిదర్శనం. ఈ స్థలం కొత్తగూడెం పట్టణానికి నిరీక్షణ మరియు ఉజ్జీవ కేంద్రంగా మారుతుందని మేము నమ్ముతున్నాము.">
                             "Welcome to Zion Ministries. This building is a testament to God's faithfulness. We believe this place will be a beacon of hope and revival for Kothagudem."
                         </p>
                     </div>
                     
-                    <p class="text-gray-600 leading-relaxed mb-6">
+                    <p class="lang-text text-gray-600 leading-relaxed mb-6"
+                       data-en="Under Pastor Vijay Kumar's visionary leadership, Zion Ministries has grown from a humble gathering to a movement of faith. We invite you to join us as we dedicate this temple to the Glory of God."
+                       data-te="పాస్టర్ విజయ్ కుమార్ గారి నాయకత్వంలో, సీయోను మినిస్ట్రీస్ గొప్ప విశ్వాస సమూహంగా ఎదిగింది. దేవుని మహిమ కొరకు ఈ ఆలయాన్ని ప్రతిష్ఠించుచుండగా మాతో చేరాలని మిమ్మల్ని ఆహ్వానిస్తున్నాము.">
                         Under Pastor Vijay Kumar's visionary leadership, Zion Ministries has grown from a humble gathering to a movement of faith. We invite you to join us as we dedicate this temple to the Glory of God.
                     </p>
                 </div>
@@ -221,8 +265,10 @@
     <section id="speakers" class="py-16 md:py-20 bg-royal-900 text-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12 md:mb-16 reveal">
-                <span class="text-gold-400 uppercase tracking-widest text-sm font-bold">God's Servants</span>
-                <h2 class="text-3xl md:text-4xl font-serif mt-2">Special Guest Speakers</h2>
+                <span class="lang-text text-gold-400 uppercase tracking-widest text-sm font-bold"
+                      data-en="God's Servants" data-te="దేవుని సేవకులు">God's Servants</span>
+                <h2 class="lang-text text-3xl md:text-4xl font-serif mt-2"
+                    data-en="Special Guest Speakers" data-te="ముఖ్య అతిథులు & వక్తలు">Special Guest Speakers</h2>
                 <div class="w-24 h-1 bg-gold-500 mx-auto mt-4"></div>
             </div>
 
@@ -230,13 +276,16 @@
                 <div class="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition duration-500 reveal">
                     <div class="flex flex-col md:flex-row h-full">
                         <div class="md:w-2/5 h-96 md:h-auto">
-                            <img src="zz/Layer 16.jpg" alt="Apostle Steeven Garu" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-110">
+                            <img src="zz/Layer 16.jpg" onerror="this.src='https://placehold.co/400x500?text=Apostle+Steeven'" alt="Apostle Steeven Garu" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-110">
                         </div>
                         <div class="p-6 md:p-8 md:w-3/5 flex flex-col justify-center text-left">
-                            <h3 class="text-xl md:text-2xl font-serif font-bold text-white mb-1">Apostle Steeven Garu</h3>
-                            <p class="text-gold-400 font-bold text-sm uppercase mb-4">Manuguru</p>
+                            <h3 class="lang-text text-xl md:text-2xl font-serif font-bold text-white mb-1"
+                                data-en="Apostle Steeven Garu" data-te="అపోస్తలులు స్టీవెన్ గారు">Apostle Steeven Garu</h3>
+                            <p class="lang-text text-gold-400 font-bold text-sm uppercase mb-4" data-en="Manuguru" data-te="మణుగూరు">Manuguru</p>
                             <div class="h-px w-full bg-white/20 mb-4"></div>
-                            <p class="text-gray-300 text-sm mb-2"><i class="fas fa-church mr-2 text-gold-500"></i> House of Hope Ministries</p>
+                            <p class="lang-text text-gray-300 text-sm mb-2" data-en="House of Hope Ministries" data-te="House of Hope Ministries">
+                                <i class="fas fa-church mr-2 text-gold-500"></i> <span class="content">House of Hope Ministries</span>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -244,11 +293,12 @@
                 <div class="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition duration-500 reveal delay-100">
                     <div class="flex flex-col md:flex-row h-full">
                          <div class="md:w-2/5 h-96 md:h-auto">
-                            <img src="zz/YESUPADHAM.jpg" alt="Rev Yesupadam Garu" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-110">
+                            <img src="zz/YESUPADHAM.jpg" onerror="this.src='https://placehold.co/400x500?text=Rev+Yesupadam'" alt="Rev Yesupadam Garu" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-110">
                         </div>
                         <div class="p-6 md:p-8 md:w-3/5 flex flex-col justify-center text-left">
-                            <h3 class="text-xl md:text-2xl font-serif font-bold text-white mb-1">Rev Yesupadam Garu</h3>
-                            <p class="text-gold-400 font-bold text-sm uppercase mb-4">Hyderabad</p>
+                            <h3 class="lang-text text-xl md:text-2xl font-serif font-bold text-white mb-1"
+                                data-en="Rev Yesupadam Garu" data-te="రెవ. యేసుపాదం గారు">Rev Yesupadam Garu</h3>
+                            <p class="lang-text text-gold-400 font-bold text-sm uppercase mb-4" data-en="Hyderabad" data-te="హైదరాబాద్">Hyderabad</p>
                             <div class="h-px w-full bg-white/20 mb-4"></div>
                             <p class="text-gray-300 text-sm mb-2"><i class="fas fa-church mr-2 text-gold-500"></i> Berachah Ministries</p>
                         </div>
@@ -261,8 +311,10 @@
     <section id="construction" class="py-16 md:py-20 bg-slate-50 relative overflow-hidden">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12 md:mb-16 reveal">
-                <h2 class="text-3xl md:text-4xl font-serif text-royal-900">From Vision to Victory</h2>
-                <p class="text-gray-500 mt-2">Our Construction Journey (Click photos to enlarge)</p>
+                <h2 class="lang-text text-3xl md:text-4xl font-serif text-royal-900"
+                    data-en="From Vision to Victory" data-te="దర్శనం నుండి విజయం వరకు">From Vision to Victory</h2>
+                <p class="lang-text text-gray-500 mt-2"
+                   data-en="Our Construction Journey (Click photos to enlarge)" data-te="మా నిర్మాణ ప్రయాణం (ఫోటోలను చూడటానికి క్లిక్ చేయండి)">Our Construction Journey (Click photos to enlarge)</p>
             </div>
 
             <div class="relative max-w-6xl mx-auto">
@@ -270,20 +322,24 @@
 
                 <div class="relative flex flex-col md:flex-row items-center justify-between md:flex-row-reverse mb-12 md:mb-16 reveal">
                     <div class="hidden md:block w-5/12 text-left pl-12">
-                        <h3 class="text-3xl font-serif text-royal-900">Demolition & Site Prep</h3>
-                        <p class="text-gray-600 mt-2 text-lg">Clearing the old to make way for the new glory.</p>
+                        <h3 class="lang-text text-3xl font-serif text-royal-900"
+                            data-en="Demolition & Site Prep" data-te="స్థలము సిద్ధపరచుట">Demolition & Site Prep</h3>
+                        <p class="lang-text text-gray-600 mt-2 text-lg"
+                           data-en="Clearing the old to make way for the new glory." data-te="నూతన మహిమ కొరకు పాతదానిని తొలగించుట.">Clearing the old to make way for the new glory.</p>
                     </div>
                     <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-royal-900 border-4 border-gold-400 rounded-full z-10 translate-y-2 md:translate-y-0"></div>
                     <div class="pl-12 md:pr-12 md:pl-0 w-full md:w-5/12 mt-2 md:mt-0">
                          <div class="bg-white p-4 rounded-xl shadow-xl group hover:shadow-2xl transition duration-300">
                             <div class="grid grid-cols-2 gap-3">
-                                <img src="zz/demolish.jpeg" onclick="openLightbox(this.src)" alt="Demolition 1" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
-                                <img src="zz/demo 2.jpeg" onclick="openLightbox(this.src)" alt="Demolition 2" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
-                                <img src="zz/WhatsApp Image 2025-12-09 at 4.44.13 PM (1).jpeg" onclick="openLightbox(this.src)" alt="Site Prep" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02] col-span-2">
+                                <img src="zz/demolish.jpeg" onerror="this.src='https://placehold.co/400x300?text=Demolition+1'" onclick="openLightbox(this.src)" alt="Demolition 1" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
+                                <img src="zz/demo 2.jpeg" onerror="this.src='https://placehold.co/400x300?text=Demolition+2'" onclick="openLightbox(this.src)" alt="Demolition 2" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
+                                <img src="zz/WhatsApp Image 2025-12-09 at 4.44.13 PM (1).jpeg" onerror="this.src='https://placehold.co/800x300?text=Site+Prep'" onclick="openLightbox(this.src)" alt="Site Prep" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02] col-span-2">
                             </div>
                             <div class="md:hidden mt-4 px-2 pb-2">
-                                <h3 class="text-xl font-serif text-royal-900 font-bold">Demolition & Site Prep</h3>
-                                <p class="text-sm text-gray-600">Clearing the old to make way for the new glory.</p>
+                                <h3 class="lang-text text-xl font-serif text-royal-900 font-bold"
+                                    data-en="Demolition & Site Prep" data-te="స్థలము సిద్ధపరచుట">Demolition & Site Prep</h3>
+                                <p class="lang-text text-sm text-gray-600"
+                                   data-en="Clearing the old to make way for the new glory." data-te="నూతన మహిమ కొరకు పాతదానిని తొలగించుట.">Clearing the old to make way for the new glory.</p>
                             </div>
                         </div>
                     </div>
@@ -291,20 +347,22 @@
 
                 <div class="relative flex flex-col md:flex-row items-center justify-between md:justify-normal mb-12 md:mb-16 reveal">
                     <div class="hidden md:block w-5/12 text-right pr-12">
-                        <h3 class="text-3xl font-serif text-royal-900">Foundation</h3>
-                        <p class="text-gray-600 mt-2 text-lg">Laying the spiritual and physical cornerstone.</p>
+                        <h3 class="lang-text text-3xl font-serif text-royal-900"
+                            data-en="Foundation" data-te="పునాది">Foundation</h3>
+                        <p class="lang-text text-gray-600 mt-2 text-lg"
+                           data-en="Laying cornerstone." data-te="పునాది రాయిని వేయుట.">Laying the spiritual and physical cornerstone.</p>
                     </div>
                     <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-royal-900 border-4 border-gold-400 rounded-full z-10 translate-y-2 md:translate-y-0"></div>
                     <div class="pl-12 md:pl-12 w-full md:w-5/12 mt-2 md:mt-0">
                         <div class="bg-white p-4 rounded-xl shadow-xl group hover:shadow-2xl transition duration-300">
                             <div class="grid grid-cols-2 gap-3">
-                                <img src="zz/ground 2.jpeg" onclick="openLightbox(this.src)" alt="Cornerstone" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02] col-span-2">
-                                <img src="zz/ground 1.jpeg" onclick="openLightbox(this.src)" alt="Foundation 1" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
-                                <img src="zz/ground 3.jpeg" onclick="openLightbox(this.src)" alt="Foundation 2" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
+                                <img src="zz/ground 2.jpeg" onerror="this.src='https://placehold.co/800x300?text=Foundation+Work'" onclick="openLightbox(this.src)" alt="Cornerstone" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02] col-span-2">
+                                <img src="zz/ground 1.jpeg" onerror="this.src='https://placehold.co/400x300?text=Laying+Foundation'" onclick="openLightbox(this.src)" alt="Foundation 1" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
+                                <img src="zz/ground 3.jpeg" onerror="this.src='https://placehold.co/400x300?text=Concrete+Pour'" onclick="openLightbox(this.src)" alt="Foundation 2" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
                             </div>
                             <div class="md:hidden mt-4 px-2 pb-2">
-                                <h3 class="text-xl font-serif text-royal-900 font-bold">Foundation</h3>
-                                <p class="text-sm text-gray-600">Laying the spiritual and physical cornerstone.</p>
+                                <h3 class="lang-text text-xl font-serif text-royal-900 font-bold" data-en="Foundation" data-te="పునాది">Foundation</h3>
+                                <p class="lang-text text-sm text-gray-600" data-en="Laying the spiritual and physical cornerstone." data-te="ఆత్మీయ మరియు భౌతిక పునాది రాయిని వేయుట.">Laying the spiritual and physical cornerstone.</p>
                             </div>
                         </div>
                     </div>
@@ -312,19 +370,21 @@
 
                 <div class="relative flex flex-col md:flex-row items-center justify-between md:flex-row-reverse mb-12 md:mb-16 reveal">
                     <div class="hidden md:block w-5/12 text-left pl-12">
-                        <h3 class="text-3xl font-serif text-royal-900">Pillars & Structure</h3>
-                        <p class="text-gray-600 mt-2 text-lg">The framework of faith rising up.</p>
+                        <h3 class="lang-text text-3xl font-serif text-royal-900"
+                            data-en="Pillars & Structure" data-te="స్తంభాలు & నిర్మాణం">Pillars & Structure</h3>
+                        <p class="lang-text text-gray-600 mt-2 text-lg"
+                           data-en="The framework of faith rising up." data-te="విశ్వాస గృహం పైకి లేచుట.">The framework of faith rising up.</p>
                     </div>
                     <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-royal-900 border-4 border-gold-400 rounded-full z-10 translate-y-2 md:translate-y-0"></div>
                     <div class="pl-12 md:pr-12 md:pl-0 w-full md:w-5/12 mt-2 md:mt-0">
                          <div class="bg-white p-4 rounded-xl shadow-xl group hover:shadow-2xl transition duration-300">
                             <div class="grid grid-cols-2 gap-3">
-                                <img src="zz/WhatsApp Image 2025-12-10 at 1.16.14 AM.jpeg" onclick="openLightbox(this.src)" alt="Structure 1" class="cursor-pointer rounded-lg w-full h-80 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02] row-span-2">
-                                <img src="zz/pillers.jpeg" onclick="openLightbox(this.src)" alt="Structure 2" class="cursor-pointer rounded-lg w-full h-36 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
-                                <img src="zz/WhatsApp Image 2025-12-10 at 1.14.42 AM.jpeg" onclick="openLightbox(this.src)" alt="Structure 3" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
+                                <img src="zz/WhatsApp Image 2025-12-10 at 1.16.14 AM.jpeg" onerror="this.src='https://placehold.co/400x600?text=Pillars'" onclick="openLightbox(this.src)" alt="Structure 1" class="cursor-pointer rounded-lg w-full h-80 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02] row-span-2">
+                                <img src="zz/pillers.jpeg" onerror="this.src='https://placehold.co/400x300?text=Structure'" onclick="openLightbox(this.src)" alt="Structure 2" class="cursor-pointer rounded-lg w-full h-36 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
+                                <img src="zz/WhatsApp Image 2025-12-10 at 1.14.42 AM.jpeg" onerror="this.src='https://placehold.co/400x300?text=Walls'" onclick="openLightbox(this.src)" alt="Structure 3" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
                             </div>
                             <div class="md:hidden mt-4 px-2 pb-2">
-                                <h3 class="text-xl font-serif text-royal-900 font-bold">Pillars & Structure</h3>
+                                <h3 class="lang-text text-xl font-serif text-royal-900 font-bold" data-en="Pillars & Structure" data-te="స్తంభాలు & నిర్మాణం">Pillars & Structure</h3>
                             </div>
                         </div>
                     </div>
@@ -332,20 +392,22 @@
 
                 <div class="relative flex flex-col md:flex-row items-center justify-between md:justify-normal mb-12 md:mb-16 reveal">
                     <div class="hidden md:block w-5/12 text-right pr-12">
-                        <h3 class="text-3xl font-serif text-royal-900">Roofing & Interior</h3>
-                        <p class="text-gray-600 mt-2 text-lg">Preparing the sanctuary for worship.</p>
+                        <h3 class="lang-text text-3xl font-serif text-royal-900"
+                            data-en="Roofing & Interior" data-te="పైకప్పు & అలంకరణ">Roofing & Interior</h3>
+                        <p class="lang-text text-gray-600 mt-2 text-lg"
+                           data-en="Preparing the sanctuary for worship." data-te="ఆరాధన కొరకు మందిరాన్ని సిద్ధపరచుట.">Preparing the sanctuary for worship.</p>
                     </div>
                     <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-royal-900 border-4 border-gold-400 rounded-full z-10 translate-y-2 md:translate-y-0"></div>
                     <div class="pl-12 md:pl-12 w-full md:w-5/12 mt-2 md:mt-0">
                         <div class="bg-white p-4 rounded-xl shadow-xl group hover:shadow-2xl transition duration-300">
                             <div class="grid grid-cols-3 gap-3">
-                                <img src="zz/roof 2.JPG" onclick="openLightbox(this.src)" alt="Roofing" class="cursor-pointer rounded-lg w-full h-32 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02] col-span-3">
-                                <img src="zz/roof 1.JPG" onclick="openLightbox(this.src)" alt="Flooring" class="cursor-pointer rounded-lg w-full h-32 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
-                                <img src="zz/WhatsApp Image 2025-12-10 at 1.17.57 AM (1).jpeg" onclick="openLightbox(this.src)" alt="Ceiling" class="cursor-pointer rounded-lg w-full h-32 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
-                                <img src="zz/WhatsApp Image 2025-12-10 at 1.17.56 AM.jpeg" onclick="openLightbox(this.src)" alt="Painting" class="cursor-pointer rounded-lg w-full h-32 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
+                                <img src="zz/roof 2.JPG" onerror="this.src='https://placehold.co/800x300?text=Roofing'" onclick="openLightbox(this.src)" alt="Roofing" class="cursor-pointer rounded-lg w-full h-32 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02] col-span-3">
+                                <img src="zz/roof 1.JPG" onerror="this.src='https://placehold.co/400x300?text=Flooring'" onclick="openLightbox(this.src)" alt="Flooring" class="cursor-pointer rounded-lg w-full h-32 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
+                                <img src="zz/WhatsApp Image 2025-12-10 at 1.17.57 AM (1).jpeg" onerror="this.src='https://placehold.co/400x300?text=Ceiling'" onclick="openLightbox(this.src)" alt="Ceiling" class="cursor-pointer rounded-lg w-full h-32 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
+                                <img src="zz/WhatsApp Image 2025-12-10 at 1.17.56 AM.jpeg" onerror="this.src='https://placehold.co/400x300?text=Painting'" onclick="openLightbox(this.src)" alt="Painting" class="cursor-pointer rounded-lg w-full h-32 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
                             </div>
                             <div class="md:hidden mt-4 px-2 pb-2">
-                                <h3 class="text-xl font-serif text-royal-900 font-bold">Roofing & Interior</h3>
+                                <h3 class="lang-text text-xl font-serif text-royal-900 font-bold" data-en="Roofing & Interior" data-te="పైకప్పు & అలంకరణ">Roofing & Interior</h3>
                             </div>
                         </div>
                     </div>
@@ -353,19 +415,21 @@
 
                 <div class="relative flex flex-col md:flex-row items-center justify-between md:flex-row-reverse mb-12 md:mb-16 reveal">
                     <div class="hidden md:block w-5/12 text-left pl-12">
-                        <h3 class="text-3xl font-serif text-royal-900">Final Completed Church</h3>
-                        <p class="text-gray-600 mt-2 text-lg">The Victory - Ready for dedication.</p>
+                        <h3 class="lang-text text-3xl font-serif text-royal-900"
+                            data-en="Final Completed Church" data-te="సంపూర్ణమైన ఆలయం">Final Completed Church</h3>
+                        <p class="lang-text text-gray-600 mt-2 text-lg"
+                           data-en="The Victory - Ready for dedication." data-te="విజయం - ప్రతిష్ఠాపనకు సిద్ధం.">The Victory - Ready for dedication.</p>
                     </div>
                     <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gold-500 border-4 border-royal-900 rounded-full z-10 animate-pulse translate-y-2 md:translate-y-0"></div>
                     <div class="pl-12 md:pr-12 md:pl-0 w-full md:w-5/12 mt-2 md:mt-0">
                          <div class="bg-white p-4 rounded-xl shadow-xl group hover:shadow-2xl transition duration-300">
                             <div class="grid grid-cols-2 gap-3">
-                                <img src="zz/church_hero.jpeg" onclick="openLightbox(this.src)" alt="Main View" class="cursor-pointer rounded-lg w-full h-64 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02] col-span-2 shadow-lg">
-                                <img src="zz/WhatsApp Image 2025-12-10 at 1.27.21 AM.jpeg" onclick="openLightbox(this.src)" alt="Side View" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
-                                <img src="zz/WhatsApp Image 2025-12-10 at 1.26.50 AM.jpeg" onclick="openLightbox(this.src)" alt="Night View" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
+                                <img src="zz/church_hero.jpeg" onerror="this.src='https://placehold.co/800x400?text=Final+Church+View'" onclick="openLightbox(this.src)" alt="Main View" class="cursor-pointer rounded-lg w-full h-64 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02] col-span-2 shadow-lg">
+                                <img src="zz/WhatsApp Image 2025-12-10 at 1.27.21 AM.jpeg" onerror="this.src='https://placehold.co/400x300?text=Side+View'" onclick="openLightbox(this.src)" alt="Side View" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
+                                <img src="zz/WhatsApp Image 2025-12-10 at 1.26.50 AM.jpeg" onerror="this.src='https://placehold.co/400x300?text=Night+View'" onclick="openLightbox(this.src)" alt="Night View" class="cursor-pointer rounded-lg w-full h-40 object-cover hover:opacity-90 transition duration-300 transform hover:scale-[1.02]">
                             </div>
                             <div class="md:hidden mt-4 px-2 pb-2">
-                                <h3 class="text-xl font-serif text-royal-900 font-bold">Final Completed Church</h3>
+                                <h3 class="lang-text text-xl font-serif text-royal-900 font-bold" data-en="Final Completed Church" data-te="సంపూర్ణమైన ఆలయం">Final Completed Church</h3>
                             </div>
                         </div>
                     </div>
@@ -377,13 +441,17 @@
 
     <section id="live" class="py-16 md:py-24 bg-black relative text-center">
         <div class="container mx-auto px-6 relative z-10">
-            <span class="text-red-500 font-bold uppercase tracking-widest text-sm mb-4 inline-block animate-pulse">
-                <i class="fas fa-circle text-xs mr-2"></i> Live Stream
+            <span class="lang-text text-red-500 font-bold uppercase tracking-widest text-sm mb-4 inline-block animate-pulse"
+                  data-en="Live Stream" data-te="లైవ్ స్ట్రీమ్">
+                <i class="fas fa-circle text-xs mr-2"></i> <span class="content">Live Stream</span>
             </span>
-            <h2 class="text-3xl md:text-5xl font-serif text-white mb-8">Watch Zion Ministries Opening Live</h2>
+            <h2 class="lang-text text-3xl md:text-5xl font-serif text-white mb-8"
+                data-en="Watch Zion Ministries Opening Live" data-te="సీయోను మినిస్ట్రీస్ ప్రారంభోత్సవ లైవ్ చూడండి">
+                Watch Zion Ministries Opening Live
+            </h2>
             
             <a href="https://youtube.com/live/4b2sXYKiVGc?feature=share" target="_blank" class="block max-w-4xl mx-auto aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-2xl border border-gray-800 flex items-center justify-center group cursor-pointer relative hover:border-red-600 transition duration-300">
-                <img src="zz/live.jpeg" alt="Live Stream" class="w-full h-full object-cover opacity-50 group-hover:opacity-70 transition duration-300">
+                <img src="zz/live.jpeg" onerror="this.src='https://placehold.co/800x450?text=Live+Stream+Thumbnail'" alt="Live Stream" class="w-full h-full object-cover opacity-50 group-hover:opacity-70 transition duration-300">
                 <div class="absolute inset-0 flex items-center justify-center">
                     <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center text-white text-3xl shadow-lg group-hover:scale-110 transition duration-300">
                         <i class="fas fa-play ml-1"></i>
@@ -391,15 +459,20 @@
                 </div>
             </a>
             
-            <p class="text-gray-400 mt-8">Join us online on 11 December 2025 at 9:00 AM</p>
+            <p class="lang-text text-gray-400 mt-8"
+               data-en="Join us online on 11 December 2025 at 9:00 AM" data-te="11 డిసెంబర్ 2025 ఉదయం 9:00 గంటలకు ఆన్‌లైన్‌లో మాతో చేరండి">
+                Join us online on 11 December 2025 at 9:00 AM
+            </p>
         </div>
     </section>
 
     <section id="lyrics" class="py-16 md:py-20 bg-gray-900 border-t border-gray-800">
         <div class="container mx-auto px-6 max-w-4xl">
             <div class="text-center mb-12">
-                <span class="text-gold-400 uppercase tracking-widest text-sm font-bold">Praise & Worship</span>
-                <h2 class="text-3xl md:text-4xl font-serif text-white mt-2">Song Lyrics</h2>
+                <span class="lang-text text-gold-400 uppercase tracking-widest text-sm font-bold"
+                      data-en="Praise & Worship" data-te="స్తుతి & ఆరాధన">Praise & Worship</span>
+                <h2 class="lang-text text-3xl md:text-4xl font-serif text-white mt-2"
+                    data-en="Song Lyrics" data-te="పాటలు">Song Lyrics</h2>
                 <div class="w-24 h-1 bg-gold-500 mx-auto mt-4"></div>
             </div>
 
@@ -643,7 +716,7 @@
                         యావేహ్ ... రాఫా... ఎలోహిం... షడ్డాయ్...
                         యావే.. రాఫా.. ఎలోహిం.. షెడ్డై..
                         యీరె ...అడోనాయ్.... కనుపరచుము
-                        యిరే అదూనై కనుపరచుము
+                        యీరె అదూనై కనుపరచుము
 
                         <p class="font-bold text-gold-500 mb-2 mt-4">[Charanam 1]</p>
                         నీ మహిమే ఈ స్థలములో అనుభవిస్తున్నా
@@ -799,8 +872,10 @@
     <section id="testimonies" class="py-16 md:py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12 md:mb-16 reveal">
-                <span class="text-gold-600 uppercase tracking-widest text-sm font-bold">What God Has Done</span>
-                <h2 class="text-3xl md:text-4xl font-serif text-royal-900 mt-2">Testimonies</h2>
+                <span class="lang-text text-gold-600 uppercase tracking-widest text-sm font-bold"
+                      data-en="What God Has Done" data-te="దేవుడు చేసిన కార్యాలు">What God Has Done</span>
+                <h2 class="lang-text text-3xl md:text-4xl font-serif text-royal-900 mt-2"
+                    data-en="Testimonies" data-te="సాక్ష్యములు">Testimonies</h2>
                 <div class="w-24 h-1 bg-gold-500 mx-auto mt-4"></div>
             </div>
 
@@ -978,8 +1053,10 @@
     <section id="services" class="py-16 md:py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12 md:mb-16 reveal">
-                <span class="text-gold-600 uppercase tracking-widest text-sm font-bold">Join Us Weekly</span>
-                <h2 class="text-3xl md:text-4xl font-serif text-royal-900 mt-2">Weekly Worship Services</h2>
+                <span class="lang-text text-gold-600 uppercase tracking-widest text-sm font-bold"
+                      data-en="Join Us Weekly" data-te="వారపు ఆరాధనలు">Join Us Weekly</span>
+                <h2 class="lang-text text-3xl md:text-4xl font-serif text-royal-900 mt-2"
+                    data-en="Weekly Worship Services" data-te="ఆరాధన క్రమము">Weekly Worship Services</h2>
                 <div class="w-24 h-1 bg-gold-500 mx-auto mt-4"></div>
             </div>
 
@@ -988,11 +1065,15 @@
                     <div class="w-16 h-16 bg-royal-900 text-gold-400 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
                         <i class="fas fa-church"></i>
                     </div>
-                    <h3 class="text-2xl font-serif font-bold text-royal-900 mb-2">Sunday Service</h3>
-                    <p class="text-gold-600 font-bold mb-4 uppercase text-sm tracking-wide">Main Worship</p>
-                    <p class="text-gray-600">Join us for a time of powerful praise, worship, and the Word of God.</p>
+                    <h3 class="lang-text text-2xl font-serif font-bold text-royal-900 mb-2"
+                        data-en="Sunday Service" data-te="ఆదివారపు ఆరాధన">Sunday Service</h3>
+                    <p class="lang-text text-gold-600 font-bold mb-4 uppercase text-sm tracking-wide"
+                       data-en="Main Worship" data-te="ప్రధాన ఆరాధన">Main Worship</p>
+                    <p class="lang-text text-gray-600"
+                       data-en="Join us for a time of powerful praise, worship, and the Word of God." data-te="శక్తివంతమైన స్తుతి, ఆరాధన మరియు దేవుని వాక్య ధ్యానములో మాతో చేరండి.">Join us for a time of powerful praise, worship, and the Word of God.</p>
                     <div class="mt-6 pt-6 border-t border-gray-100">
-                        <p class="text-xl font-bold text-royal-800">8:00 AM</p>
+                        <p class="lang-text text-xl font-bold text-royal-800"
+                           data-en="8:00 AM" data-te="ఉదయం 8:00 గం.">8:00 AM</p>
                     </div>
                 </div>
 
@@ -1000,11 +1081,15 @@
                     <div class="w-16 h-16 bg-royal-900 text-gold-400 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
                         <i class="fas fa-praying-hands"></i>
                     </div>
-                    <h3 class="text-2xl font-serif font-bold text-royal-900 mb-2">Fasting Prayer</h3>
-                    <p class="text-gold-600 font-bold mb-4 uppercase text-sm tracking-wide">Every Wednesday</p>
-                    <p class="text-gray-600">Dedicate time to seek God's face in prayer and intercession for our families and nation.</p>
+                    <h3 class="lang-text text-2xl font-serif font-bold text-royal-900 mb-2"
+                        data-en="Fasting Prayer" data-te="ఉపవాస ప్రార్థన">Fasting Prayer</h3>
+                    <p class="lang-text text-gold-600 font-bold mb-4 uppercase text-sm tracking-wide"
+                       data-en="Every Wednesday" data-te="ప్రతి బుధవారం">Every Wednesday</p>
+                    <p class="lang-text text-gray-600"
+                       data-en="Dedicate time to seek God's face in prayer and intercession for our families and nation." data-te="మన కుటుంబాల మరియు దేశం కొరకు ఉపవాసంతో ప్రార్థించు సమయం.">Dedicate time to seek God's face in prayer and intercession for our families and nation.</p>
                     <div class="mt-6 pt-6 border-t border-gray-100">
-                        <p class="text-xl font-bold text-royal-800">7:00 PM</p>
+                        <p class="lang-text text-xl font-bold text-royal-800"
+                           data-en="7:00 PM" data-te="సాయంత్రం 7:00 గం.">7:00 PM</p>
                     </div>
                 </div>
                 
@@ -1012,11 +1097,15 @@
                     <div class="w-16 h-16 bg-royal-900 text-gold-400 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
                         <i class="fas fa-book-open"></i>
                     </div>
-                    <h3 class="text-2xl font-serif font-bold text-royal-900 mb-2">Women's Meeting</h3>
-                    <p class="text-gold-600 font-bold mb-4 uppercase text-sm tracking-wide">Every Friday</p>
-                    <p class="text-gray-600">Deep dive into the scriptures to grow in knowledge and spiritual maturity.</p>
+                    <h3 class="lang-text text-2xl font-serif font-bold text-royal-900 mb-2"
+                        data-en="Women's Meeting" data-te="స్త్రీల కూడిక">Women's Meeting</h3>
+                    <p class="lang-text text-gold-600 font-bold mb-4 uppercase text-sm tracking-wide"
+                       data-en="Every Friday" data-te="ప్రతి శుక్రవారం">Every Friday</p>
+                    <p class="lang-text text-gray-600"
+                       data-en="Deep dive into the scriptures to grow in knowledge and spiritual maturity." data-te="దేవుని వాక్యంలో ఎదిగేందుకు ప్రత్యేక కూడిక.">Deep dive into the scriptures to grow in knowledge and spiritual maturity.</p>
                     <div class="mt-6 pt-6 border-t border-gray-100">
-                        <p class="text-xl font-bold text-royal-800">11:00 AM</p>
+                        <p class="lang-text text-xl font-bold text-royal-800"
+                           data-en="11:00 AM" data-te="ఉదయం 11:00 గం.">11:00 AM</p>
                     </div>
                 </div>
 
@@ -1024,11 +1113,15 @@
                     <div class="w-16 h-16 bg-royal-900 text-gold-400 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
                         <i class="fas fa-child"></i>
                     </div>
-                    <h3 class="text-2xl font-serif font-bold text-royal-900 mb-2">Sunday School</h3>
-                    <p class="text-gold-600 font-bold mb-4 uppercase text-sm tracking-wide">For Kids</p>
-                    <p class="text-gray-600">Fun-filled biblical teaching, songs, and activities to build a strong foundation for children.</p>
+                    <h3 class="lang-text text-2xl font-serif font-bold text-royal-900 mb-2"
+                        data-en="Sunday School" data-te="సండే స్కూల్">Sunday School</h3>
+                    <p class="lang-text text-gold-600 font-bold mb-4 uppercase text-sm tracking-wide"
+                       data-en="For Kids" data-te="పిల్లల కోసం">For Kids</p>
+                    <p class="lang-text text-gray-600"
+                       data-en="Fun-filled biblical teaching, songs, and activities to build a strong foundation for children." data-te="పిల్లలకు బలమైన ఆత్మీయ పునాది వేయుటకు పాటలు మరియు వాక్యం.">Fun-filled biblical teaching, songs, and activities to build a strong foundation for children.</p>
                     <div class="mt-6 pt-6 border-t border-gray-100">
-                        <p class="text-xl font-bold text-royal-800">10:00 AM</p>
+                        <p class="lang-text text-xl font-bold text-royal-800"
+                           data-en="10:00 AM" data-te="ఉదయం 10:00 గం.">10:00 AM</p>
                     </div>
                 </div>
             </div>
@@ -1039,8 +1132,10 @@
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div>
-                    <h2 class="text-3xl font-serif text-royal-900 mb-6">Get in Touch</h2>
-                    <p class="text-gray-600 mb-8">We would love to hear from you. Send us a prayer request or reach out for directions.</p>
+                    <h2 class="lang-text text-3xl font-serif text-royal-900 mb-6"
+                        data-en="Get in Touch" data-te="వివరముల కొరకు సంప్రదించండి">Get in Touch</h2>
+                    <p class="lang-text text-gray-600 mb-8"
+                       data-en="We would love to hear from you. Send us a prayer request or reach out for directions." data-te="మీ ప్రార్థన అవసరతలను మాకు పంపండి లేదా అడ్రస్ కోసం సంప్రదించండి.">We would love to hear from you. Send us a prayer request or reach out for directions.</p>
                     
                     <div class="space-y-6">
                         <div class="flex items-center p-4 bg-white rounded-lg shadow-sm border border-gray-100">
@@ -1048,7 +1143,8 @@
                                 <i class="fab fa-whatsapp"></i>
                             </div>
                             <div>
-                                <p class="text-xs text-gray-500 uppercase font-bold tracking-wider">WhatsApp / Call</p>
+                                <p class="lang-text text-xs text-gray-500 uppercase font-bold tracking-wider"
+                                   data-en="WhatsApp / Call" data-te="వాట్సాప్ / ఫోన్">WhatsApp / Call</p>
                                 <a href="https://wa.me/919908756733" class="text-lg font-bold text-royal-900 hover:text-green-600 block transition">9908756733</a>
                                 <a href="https://wa.me/917659997772" class="text-lg font-bold text-royal-900 hover:text-green-600 block transition">7659997772</a>
                             </div>
@@ -1059,8 +1155,10 @@
                                 <i class="fas fa-map-marked-alt"></i>
                             </div>
                             <div>
-                                <p class="text-xs text-gray-500 uppercase font-bold tracking-wider">Location</p>
-                                <p class="text-lg font-bold text-royal-900">Kothagudem, Telangana</p>
+                                <p class="lang-text text-xs text-gray-500 uppercase font-bold tracking-wider"
+                                   data-en="Location" data-te="అడ్రస్">Location</p>
+                                <p class="lang-text text-lg font-bold text-royal-900"
+                                   data-en="Kothagudem, Telangana" data-te="కొత్తగూడెం, తెలంగాణ">Kothagudem, Telangana</p>
                             </div>
                         </div>
                     </div>
@@ -1074,7 +1172,8 @@
                     <div class="absolute bottom-4 left-4 right-4 bg-white p-4 rounded shadow-lg">
                         <h4 class="font-bold text-royal-900">Zion Ministries</h4>
                         <p class="text-sm text-gray-500">Kothagudem, Telangana</p>
-                        <a href="https://maps.app.goo.gl/uNMzxbUcyPXyN5x46" target="_blank" class="mt-2 block text-center bg-royal-900 text-white text-sm py-2 rounded hover:bg-royal-800 transition">Get Directions</a>
+                        <a href="https://maps.app.goo.gl/uNMzxbUcyPXyN5x46" target="_blank" class="lang-text mt-2 block text-center bg-royal-900 text-white text-sm py-2 rounded hover:bg-royal-800 transition"
+                           data-en="Get Directions" data-te="రూట్ మ్యాప్">Get Directions</a>
                     </div>
                 </div>
             </div>
@@ -1089,13 +1188,15 @@
                         <i class="fas fa-cross text-gold-500 text-2xl"></i>
                         <span class="font-display text-xl tracking-widest font-bold uppercase">Zion Ministries</span>
                     </div>
-                    <p class="text-gray-400 text-sm leading-relaxed">
+                    <p class="lang-text text-gray-400 text-sm leading-relaxed"
+                       data-en="Establishing the Kingdom of God in Kothagudem. A place of worship, healing, and revival." data-te="కొత్తగూడెం పట్టణంలో దేవుని రాజ్యాన్ని స్థాపించుట. ఆరాధన, స్వస్థత మరియు ఉజ్జీవ కేంద్రం.">
                         Establishing the Kingdom of God in Kothagudem. A place of worship, healing, and revival.
                     </p>
                 </div>
 
                 <div>
-                    <h4 class="font-bold text-lg mb-6 text-gold-400">Contact Info</h4>
+                    <h4 class="lang-text font-bold text-lg mb-6 text-gold-400"
+                        data-en="Contact Info" data-te="సంప్రదించు వివరాలు">Contact Info</h4>
                     <ul class="space-y-4 text-gray-400 text-sm">
                         <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-gold-500"></i> Kothagudem, Telangana</li>
                         <li class="flex items-center"><i class="fas fa-phone mr-3 text-gold-500"></i> 9908756733</li>
@@ -1104,15 +1205,16 @@
                 </div>
 
                 <div>
-                    <h4 class="font-bold text-lg mb-6 text-gold-400">Grand Opening</h4>
+                    <h4 class="lang-text font-bold text-lg mb-6 text-gold-400"
+                        data-en="Grand Opening" data-te="ప్రారంభోత్సవం">Grand Opening</h4>
                     <ul class="space-y-2 text-gray-400 text-sm">
                         <li class="flex justify-between border-b border-gray-800 pb-2">
-                            <span>Date</span>
-                            <span class="text-white">11 Dec 2025</span>
+                            <span class="lang-text" data-en="Date" data-te="తేదీ">Date</span>
+                            <span class="lang-text text-white" data-en="11 Dec 2025" data-te="11 డిసెంబర్ 2025">11 Dec 2025</span>
                         </li>
                         <li class="flex justify-between border-b border-gray-800 pb-2 pt-2">
-                            <span>Time</span>
-                            <span class="text-white">9:00 AM</span>
+                            <span class="lang-text" data-en="Time" data-te="సమయం">Time</span>
+                            <span class="lang-text text-white" data-en="9:00 AM" data-te="ఉదయం 9:00">9:00 AM</span>
                         </li>
                     </ul>
                 </div>
@@ -1241,6 +1343,54 @@
                 icon.classList.add('fa-minus');
                 icon.style.transform = 'rotate(180deg)';
             }
+        }
+
+        // ----------------------------------------
+        // LANGUAGE TOGGLE LOGIC
+        // ----------------------------------------
+        // Default to English if no storage item exists.
+        let currentLang = localStorage.getItem('site_lang') || 'en';
+
+        // Apply language on load
+        document.addEventListener('DOMContentLoaded', () => {
+            applyLanguage(currentLang);
+        });
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'te' : 'en';
+            localStorage.setItem('site_lang', currentLang);
+            applyLanguage(currentLang);
+        }
+
+        function applyLanguage(lang) {
+            const langElements = document.querySelectorAll('.lang-text');
+            
+            langElements.forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) {
+                    // Safe replacement logic to preserve icons
+                    // Priority 1: Check for span.content
+                    const contentSpan = el.querySelector('span.content');
+                    if (contentSpan) {
+                        contentSpan.innerText = text;
+                    } else {
+                        // Priority 2: If no span.content, check if it has any icon (i tag)
+                        // If it has icon but no content wrapper, we skip simple innerText replace to avoid deleting icon
+                        // In this codebase, all icon+text elements have been wrapped in span.content
+                        const hasIcon = el.querySelector('i');
+                        if (!hasIcon) {
+                            el.innerText = text;
+                        }
+                    }
+
+                    // Update font family for better Telugu rendering
+                    if (lang === 'te') {
+                        el.classList.add('font-telugu');
+                    } else {
+                        el.classList.remove('font-telugu');
+                    }
+                }
+            });
         }
     </script>
 </body>
